@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_item_user"
+        android:title=""
+        android:actionLayout="@layout/custom_avatar_layout"
+        app:showAsAction="always">
+    </item>
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/navigation_item_home"
+            android:title="Home"/>
+
+        <item
+            android:id="@+id/navigation_item_share"
+            android:title="Share"/>
+
+        <item
+            android:id="@+id/navigation_item_graph"
+            android:title="Graph" />
+
+        <item
+            android:id="@+id/navigation_item_calendar"
+            android:title="Calendar" />
+
+        <item
+            android:id="@+id/navigation_item_devicesettings"
+            android:title="Device Settings" />
+
+        <item
+            android:id="@+id/navigation_item_settings"
+            android:title="Settings" />
+
+        <item
+            android:id="@+id/navigation_item_myprofile"
+            android:title="My Profile" />
+
+        <item
+            android:id="@+id/navigation_item_changepassword"
+            android:title="Change Password" />
+
+        <item
+            android:id="@+id/navigation_help"
+            android:title="Help" />
+
+        <item
+            android:id="@+id/navigation_item_faqs"
+            android:title="FAQ's" />
+
+        <item
+            android:id="@+id/navigation_item_contactus"
+            android:title="Contact Us" />
+
+        <item
+            android:id="@+id/navigation_item_abouttwomountains"
+            android:title="About Two Mountains" />
+
+        <item
+            android:id="@+id/navigation_item_logout"
+            android:title="Logout" />
+        <!--随意添加菜单选项-->
+    </group>
+</menu>

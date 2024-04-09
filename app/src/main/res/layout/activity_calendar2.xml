@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CalendarActivity2">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/app_background">
+
+        <!-- 工具栏 -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:background="@drawable/shape_background"
+            tools:context="com.example.ble.CalendarActivity2">
+
+            <RelativeLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:clickable="true"
+                    android:id="@+id/tv_pre"
+                    android:textColor="#4586ED"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:text="7月"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:id="@+id/tv_month"
+                    android:textColor="#768797"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:text="2016年8月"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:clickable="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/tv_next"
+                    android:textColor="#4586ED"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp"
+                    android:text="8月"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <com.example.ble.view.CalendarView
+                android:id="@+id/calendar"
+                android:layout_width="300dp"
+                android:layout_height="300dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- 侧边菜单 -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
