@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -20,30 +21,39 @@
         android:theme="@style/Theme.BLE"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".CalendarActivity2"
+            android:name=".ui.activity.HelpActivity"
             android:exported="true" />
         <activity
-            android:name=".BleActivity"
+            android:name=".ui.activity.DailyReadingsActivity"
             android:exported="true" />
         <activity
-            android:name=".CalendarActivity"
+            android:name=".ui.activity.ArticleActivity"
             android:exported="true" />
         <activity
-            android:name=".LineChartActivity"
+            android:name=".ui.activity.CalendarActivity2"
             android:exported="true" />
         <activity
-            android:name=".ShareActivity"
+            android:name=".ui.activity.BleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.CalendarActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.LineChartActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.ShareActivity"
             android:exported="true" />
         <activity
             android:name=".test"
             android:exported="true" />
         <activity
-            android:name=".Ble_Connect"
+            android:name=".ui.activity.Ble_ConnectActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activity.MainActivity"
             android:exported="true"
-            android:label="Emma Smaith">
+            android:label="Two Mountains">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

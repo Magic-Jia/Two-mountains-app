@@ -1,12 +1,10 @@
-package com.example.ble;
+package com.example.ble.ui.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,14 +21,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.ble.R;
 import com.example.ble.adapter.MFragmentPagerAdapter;
-import com.example.ble.fragment.MonthFragment;
-import com.example.ble.fragment.ProgramFragment;
-import com.example.ble.fragment.WeekFragment;
+import com.example.ble.ui.fragment.MonthFragment;
+import com.example.ble.ui.fragment.ProgramFragment;
+import com.example.ble.ui.fragment.WeekFragment;
 import com.github.mikephil.charting.data.Entry;
 import com.google.android.material.navigation.NavigationView;
 
@@ -148,7 +146,7 @@ public class LineChartActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_item_devicesettings:
                         // 处理菜单项2的点击事件
-                        startActivity(new Intent(LineChartActivity.this, Ble_Connect.class));
+                        startActivity(new Intent(LineChartActivity.this, Ble_ConnectActivity.class));
                         break;
                     // 处理更多菜单项的点击事件
                 }

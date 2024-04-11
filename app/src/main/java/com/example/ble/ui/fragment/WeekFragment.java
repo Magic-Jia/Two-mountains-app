@@ -1,6 +1,5 @@
-package com.example.ble.fragment;
+package com.example.ble.ui.fragment;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +8,7 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.ble.LineChartActivity;
+import com.example.ble.ui.activity.LineChartActivity;
 import com.example.ble.R;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;

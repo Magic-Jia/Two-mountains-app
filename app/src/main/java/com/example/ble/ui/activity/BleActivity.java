@@ -1,4 +1,4 @@
-package com.example.ble;
+package com.example.ble.ui.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -24,7 +24,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.SyncStateContract;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
@@ -37,6 +36,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ble.R;
 import com.example.ble.adapter.LVDevicesAdapter;
 
 import java.util.ArrayList;
@@ -318,7 +318,7 @@ public class BleActivity extends AppCompatActivity implements View.OnClickListen
                         break;
                     case R.id.navigation_item_devicesettings:
                         // 处理菜单项2的点击事件
-                        startActivity(new Intent(BleActivity.this, Ble_Connect.class));
+                        startActivity(new Intent(BleActivity.this, Ble_ConnectActivity.class));
                         break;
                     // 处理更多菜单项的点击事件
                 }

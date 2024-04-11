@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ShareActivity">
+    tools:context=".ui.activity.ShareActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:layout_below="@+id/toolbar"
             android:orientation="vertical"
             android:background="@color/app_background"
-            tools:context=".ShareActivity">
+            tools:context=".ui.activity.ShareActivity">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/two_mountains"

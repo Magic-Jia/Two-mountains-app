@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".CalendarActivity2">
+    tools:context=".ui.activity.CalendarActivity2">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
             android:layout_centerHorizontal="true"
             android:orientation="vertical"
             android:background="@drawable/shape_background"
-            tools:context="com.example.ble.CalendarActivity2">
+            tools:context="com.example.ble.ui.activity.CalendarActivity2">
 
             <RelativeLayout
                 android:padding="10dp"

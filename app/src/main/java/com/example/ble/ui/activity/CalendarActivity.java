@@ -1,11 +1,4 @@
-package com.example.ble;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
+package com.example.ble.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +9,14 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.example.ble.R;
 import com.example.ble.adapter.CalendarAdapter;
 import com.google.android.material.navigation.NavigationView;
 
@@ -133,7 +134,7 @@ public class CalendarActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_item_devicesettings:
                         // 处理菜单项2的点击事件
-                        startActivity(new Intent(CalendarActivity.this, Ble_Connect.class));
+                        startActivity(new Intent(CalendarActivity.this, Ble_ConnectActivity.class));
                         break;
                     // 处理更多菜单项的点击事件
                 }

@@ -28,6 +28,10 @@
             android:title="Calendar" />
 
         <item
+            android:id="@+id/navigation_item_dailyReadings"
+            android:title="Daily Readings" />
+
+        <item
             android:id="@+id/navigation_item_devicesettings"
             android:title="Device Settings" />
 

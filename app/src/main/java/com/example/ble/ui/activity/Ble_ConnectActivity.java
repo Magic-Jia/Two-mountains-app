@@ -1,21 +1,10 @@
-package com.example.ble;
+package com.example.ble.ui.activity;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.Intent;
@@ -25,15 +14,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.example.ble.R;
 import com.google.android.material.navigation.NavigationView;
 
-public class Ble_Connect extends AppCompatActivity {
+public class Ble_ConnectActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -107,7 +104,7 @@ public class Ble_Connect extends AppCompatActivity {
                 if (!isEnable()) {
                     //如果蓝牙未开启，则申请打开蓝牙
                     Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-                    if (ActivityCompat.checkSelfPermission(Ble_Connect.this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                    if (ActivityCompat.checkSelfPermission(Ble_ConnectActivity.this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
                         // TODO: Consider calling
                         //    ActivityCompat#requestPermissions
                         // here to request the missing permissions, and then overriding
@@ -120,7 +117,7 @@ public class Ble_Connect extends AppCompatActivity {
                     startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
 
                 } else {
-                    startActivity(new Intent(Ble_Connect.this, BleActivity.class));
+                    startActivity(new Intent(Ble_ConnectActivity.this, BleActivity.class));
                 }
             }
         });
@@ -132,19 +129,19 @@ public class Ble_Connect extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.navigation_item_home:
                         // 处理菜单项1的点击事件
-                        startActivity(new Intent(Ble_Connect.this, MainActivity.class));
+                        startActivity(new Intent(Ble_ConnectActivity.this, MainActivity.class));
                         break;
                     case R.id.navigation_item_share:
                         // 处理菜单项1的点击事件
-                        startActivity(new Intent(Ble_Connect.this, ShareActivity.class));
+                        startActivity(new Intent(Ble_ConnectActivity.this, ShareActivity.class));
                         break;
                     case R.id.navigation_item_graph:
                         // 处理菜单项2的点击事件
-                        startActivity(new Intent(Ble_Connect.this, LineChartActivity.class));
+                        startActivity(new Intent(Ble_ConnectActivity.this, LineChartActivity.class));
                         break;
                     case R.id.navigation_item_calendar:
                         // 处理菜单项2的点击事件
-                        startActivity(new Intent(Ble_Connect.this, CalendarActivity2.class));
+                        startActivity(new Intent(Ble_ConnectActivity.this, CalendarActivity2.class));
                         break;
                     case R.id.navigation_item_devicesettings:
                         // 处理菜单项2的点击事件

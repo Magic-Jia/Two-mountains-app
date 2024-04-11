@@ -1,22 +1,20 @@
-package com.example.ble;
+package com.example.ble.ui.activity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.GestureDetector;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-
+import com.example.ble.R;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -62,7 +60,7 @@ public class ShareActivity extends AppCompatActivity{
         btn_ble.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ShareActivity.this, Ble_Connect.class));
+                startActivity(new Intent(ShareActivity.this, Ble_ConnectActivity.class));
             }
         });
 
@@ -98,7 +96,7 @@ public class ShareActivity extends AppCompatActivity{
                         break;
                     case R.id.navigation_item_devicesettings:
                         // 处理菜单项2的点击事件
-                        startActivity(new Intent(ShareActivity.this, Ble_Connect.class));
+                        startActivity(new Intent(ShareActivity.this, Ble_ConnectActivity.class));
                         break;
                     // 处理更多菜单项的点击事件
                 }

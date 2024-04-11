@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_marginTop="10dp"
     android:layout_marginHorizontal="8dp"
-    tools:context=".fragment.ProgramFragment"
+    tools:context=".ui.fragment.ProgramFragment"
     android:background="@color/app_background"
     android:orientation="vertical">
 

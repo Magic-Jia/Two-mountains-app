@@ -1,4 +1,4 @@
-package com.example.ble;
+package com.example.ble.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -18,7 +17,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.example.ble.view.CalendarView;
+import com.example.ble.Day;
+import com.example.ble.R;
 import com.example.ble.view.CalendarView;
 import com.google.android.material.navigation.NavigationView;
 
@@ -136,7 +136,7 @@ public class CalendarActivity2 extends AppCompatActivity implements View.OnClick
                         break;
                     case R.id.navigation_item_devicesettings:
                         // 处理菜单项2的点击事件
-                        startActivity(new Intent(CalendarActivity2.this, Ble_Connect.class));
+                        startActivity(new Intent(CalendarActivity2.this, Ble_ConnectActivity.class));
                         break;
                     // 处理更多菜单项的点击事件
                 }
