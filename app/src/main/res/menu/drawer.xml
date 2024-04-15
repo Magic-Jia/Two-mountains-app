@@ -39,16 +39,16 @@
             android:id="@+id/navigation_item_settings"
             android:title="Settings" />
 
-        <item
+        <!--<item
             android:id="@+id/navigation_item_myprofile"
-            android:title="My Profile" />
+            android:title="My Profile" />-->
 
         <item
             android:id="@+id/navigation_item_changepassword"
             android:title="Change Password" />
 
         <item
-            android:id="@+id/navigation_help"
+            android:id="@+id/navigation_item_help"
             android:title="Help" />
 
         <item

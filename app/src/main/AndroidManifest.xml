@@ -21,6 +21,24 @@
         android:theme="@style/Theme.BLE"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.TermsOfServiceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.StartAppActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.SignInActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.activity.HelpActivity"
             android:exported="true" />
         <activity
@@ -53,13 +71,7 @@
         <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true"
-            android:label="Two Mountains">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="Two Mountains"></activity>
     </application>
 
 </manifest>

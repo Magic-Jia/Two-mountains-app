@@ -1,54 +1,79 @@
 package com.example.ble.ui.fragment;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ble.Article;
 import com.example.ble.R;
-import com.example.ble.adapter.ArticleAdapter;
+import com.example.ble.adapter.CommonAdapter;
+import com.example.ble.adapter.ViewHolder;
+import com.example.ble.base.BaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HelpTopicsFragment extends Fragment {
+public class HelpTopicsFragment extends BaseFragment {
 
-    private RecyclerView recyclerView;
-    private ArticleAdapter articleAdapter;
-    private List<Article> articleList;
+    private class HelpTopic {
+        public HelpTopic(String title, String content) {
+            this.title = title;
+            this.content = content;
+        }
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_help_topics, container, false);
-
-        // 初始化RecyclerView
-        recyclerView = rootView.findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        // 初始化文章数据
-        initData();
-
-        // 初始化适配器
-        articleAdapter = new ArticleAdapter(articleList);
-        recyclerView.setAdapter(articleAdapter);
-
-        return rootView;
+        public String title;
+        public String content;
     }
 
-    private void initData() {
-        articleList = new ArrayList<>();
-        // 添加示例文章数据
-        for (int i = 1; i <= 20; i++) {
-            Article article = new Article("文章标题 " + i, i);
-            articleList.add(article);
+
+    private RecyclerView recycler;
+    private List<HelpTopic> helpTopics = new ArrayList<>();
+    private CommonAdapter<HelpTopic> adapter = new CommonAdapter<HelpTopic>(R.layout.item_help_topics, helpTopics) {
+        @Override
+        public void bind(ViewHolder holder, HelpTopic helpTopic, int position) {
+            holder.setText(R.id.txt_helpTitle, helpTopic.title);
+            holder.setText(R.id.txt_helpContent, helpTopic.content);
         }
+    };
+
+    public HelpTopicsFragment() {
+    }
+
+    public static HelpTopicsFragment newInstance() {
+        HelpTopicsFragment fragment = new HelpTopicsFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    protected void initData() {
+
+        helpTopics.add(new HelpTopic("Aenean imperdiet Etiam ultricies nisi vel augue", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egetdolor.Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Donec quam felis, utricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,vulputate eget, arcu. In enim justo, rhoncus ut, irmperdiet a, venenatis vitae, justo.\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egetdolor.Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Donec quam felis, utricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,vulputate eget, arcu. In enim justo, rhoncus ut, irmperdiet a, venenatis vitae, justo."));
+        helpTopics.add(new HelpTopic("Donec vitae sapien ut libero venenatis faucibus",
+                "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egetdolor.Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Donec quam felis, utricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,vulputate eget, arcu. In enim justo, rhoncus ut, irmperdiet a, venenatis vitae, justo.\nLorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egetdolor.Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Donec quam felis, utricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,vulputate eget, arcu. In enim justo, rhoncus ut, irmperdiet a, venenatis vitae, justo."));
+        helpTopics.add(new HelpTopic("Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egetdolor.Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Donec quam felis, utricies nec, pellentesque eu, pretium quis,sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,vulputate eget, arcu. In enim justo, rhoncus ut, irmperdiet a, venenatis vitae, justo."));
+        helpTopics.add(new HelpTopic("Donec sodales sagittis magna", "Aenean commodo ligula eget dolor.Aenean massa.Cum sociis natoque penatibus etmagnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, utricies nec,pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pedejusto, fringilla vel, aliquet nec, vulputate eget, arcu. ln enim justo, rhoncus ut, imperdieta, venenatis vitae, justo." +
+                "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.Donec quam felis, ultricies nec, pellentesque eu, pretium quis, serm. Nulla consequatmassa quis enim. Donec pede justo, fringila vel, aliquet nec, vulputate eget, arcu. lnenim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.\n"));
+        helpTopics.add(new HelpTopic("Cum sociis natoque penatibus et magnis", "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula egetdolor.Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes,nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,sem.Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec,vulputate eget, arcu. ln enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo."));
+
+        recycler.setAdapter(adapter);
+    }
+
+    @Override
+    protected void initListener() {
+
+    }
+
+    @Override
+    protected void findViewsById(View view) {
+        recycler = view.findViewById(R.id.recycler);
+        recycler.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_help_topics;
     }
 }

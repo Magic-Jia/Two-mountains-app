@@ -14,8 +14,16 @@ import com.example.ble.R;
 import java.util.List;
 
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder> {
+    private OnItemClickListener onItemClickListener;//保存点击事件监听器
 
     private List<Article> articleList;
+
+    /*
+    定义一个接口，用于回调点击事件
+    */
+    public interface OnItemClickListener {
+        void onItemClick(Article article);
+    }
 
     public ArticleAdapter(List<Article> articleList) {
         this.articleList = articleList;
@@ -32,6 +40,11 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     public void onBindViewHolder(@NonNull ArticleViewHolder holder, int position) {
         Article article = articleList.get(position);
         holder.bind(article);
+        holder.itemView.setOnClickListener(view -> {
+            if (onItemClickListener != null) {
+                onItemClickListener.onItemClick(article);
+            }
+        });
     }
 
     @Override
@@ -51,7 +64,13 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         public void bind(Article article) {
             txtNumber.setText(String.valueOf(article.getNumber()));
             txtTitle.setText(article.getTitle());
+
         }
     }
+    /*设置点击事件监听器*/
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.onItemClickListener = listener;
+    }
+
 }
 

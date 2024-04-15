@@ -280,7 +280,7 @@
                             android:layout_marginHorizontal="10dp"
                             android:scaleType="centerCrop"
                             android:background="@android:color/transparent"
-                            android:src="@drawable/wechat"/>
+                            android:src="@drawable/ic_wechat"/>
 
                         <ImageButton
                             android:layout_width="43dp"

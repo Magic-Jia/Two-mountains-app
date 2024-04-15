@@ -1,5 +1,6 @@
 package com.example.ble.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ble.Article;
 import com.example.ble.R;
 import com.example.ble.adapter.ArticleAdapter;
+import com.example.ble.ui.activity.ArticleActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FavoriteReadingsFragment extends Fragment {
+public class FavoriteReadingsFragment extends Fragment implements ArticleAdapter.OnItemClickListener{
 
     private RecyclerView recyclerView;
     private ArticleAdapter articleAdapter;
@@ -38,9 +40,18 @@ public class FavoriteReadingsFragment extends Fragment {
 
         // 初始化适配器
         articleAdapter = new ArticleAdapter(articleList);
+        articleAdapter.setOnItemClickListener(this); // 设置点击事件监听器
         recyclerView.setAdapter(articleAdapter);
 
         return rootView;
+    }
+
+    // 实现 onItemClick 方法来处理点击事件
+    @Override
+    public void onItemClick(Article article) {
+        Intent intent = new Intent(getActivity(), ArticleActivity.class);
+        intent.putExtra("articleNumber",article.getNumber());
+        startActivity(intent);
     }
 
     private void initData() {

@@ -98,7 +98,7 @@ public class CalendarActivity2 extends AppCompatActivity implements View.OnClick
             @Override
             public void drawDayAbove(Day day, Canvas canvas, Context context, Paint paint) {
                 if (day.dateText.endsWith("1") || day.dateText.endsWith("4") || day.dateText.endsWith("8")) {
-                    //加上西瓜
+
                     canvas.drawBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.ic_cha), 20, 20, paint);
                 }
                 else{

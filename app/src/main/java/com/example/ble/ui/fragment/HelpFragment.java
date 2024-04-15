@@ -1,21 +1,17 @@
-package com.example.ble.ui.activity;
+package com.example.ble.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.ble.R;
-import com.example.ble.ui.fragment.ContactUsFragment;
-import com.example.ble.ui.fragment.FAQFragment;
-import com.example.ble.ui.fragment.HelpTopicsFragment;
+import com.example.ble.base.BaseFragment;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
@@ -23,43 +19,34 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HelpActivity extends AppCompatActivity {
+public class HelpFragment extends BaseFragment {
     private CommonTabLayout tabLayout;
     private ViewPager viewPager;
     private List<Fragment> fragments = new ArrayList<>();
     private ImageView btn_back;
-    private int startPosition;
+
+    public static HelpFragment newInstance() {
+        Bundle args = new Bundle();
+        HelpFragment fragment = new HelpFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help);
-        Intent intent =getIntent();
-        //getXxxExtra方法获取Intent传递过来的数据
-        startPosition=intent.getIntExtra("position",1);
-        //初始化视图
-        initView();
-        //初始化监听
-        initListener();
-        //初始化数据
-        initData();
+    protected void initData() {
+
     }
 
-    private void initView() {
-        btn_back = findViewById(R.id.backBtn);
-        viewPager = findViewById(R.id.viewPager);
-        tabLayout = findViewById(R.id.tabLayout);
-    }
-
-    private void initListener() {
+    @Override
+    protected void initListener() {
         ArrayList<CustomTabEntity> tabEntities = new ArrayList<>();
         tabEntities.add(new MyEntry("HELP TOPICS"));
         tabEntities.add(new MyEntry("FAQ'S"));
         tabEntities.add(new MyEntry("CONTACT US"));
         fragments.add(HelpTopicsFragment.newInstance());
-        fragments.add(FAQFragment.newInstance());
-        fragments.add(ContactUsFragment.newInstance());
+        fragments.add(HelpTopicsFragment.newInstance());
+        fragments.add(HelpTopicsFragment.newInstance());
         viewPager.setOffscreenPageLimit(3);
-        viewPager.setAdapter(new MyViewPagerAdapter(tabLayout,fragments, getSupportFragmentManager()));
+        viewPager.setAdapter(new MyViewPagerAdapter(tabLayout,fragments, getChildFragmentManager()));
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -80,8 +67,8 @@ public class HelpActivity extends AppCompatActivity {
             }
         });
         tabLayout.setTabData(tabEntities);
-        tabLayout.setCurrentTab(startPosition);
-        viewPager.setCurrentItem(startPosition);
+        tabLayout.setCurrentTab(1);
+        viewPager.setCurrentItem(1);
         tabLayout.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
@@ -97,15 +84,24 @@ public class HelpActivity extends AppCompatActivity {
             }
         });
 
-        btn_back.setOnClickListener(new View.OnClickListener() {
+        /*btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
-        });
+        });*/
     }
 
-    private void initData() {
+    @Override
+    protected void findViewsById(View view) {
+        btn_back = view.findViewById(R.id.backBtn);
+        viewPager = view.findViewById(R.id.viewPager);
+        tabLayout = view.findViewById(R.id.tabLayout);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_help;
     }
 
     private class MyViewPagerAdapter extends FragmentPagerAdapter {

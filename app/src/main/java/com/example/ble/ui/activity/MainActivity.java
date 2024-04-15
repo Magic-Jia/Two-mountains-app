@@ -2,9 +2,7 @@ package com.example.ble.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.GestureDetector;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -23,14 +21,12 @@ import com.example.ble.R;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
-public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener{
+public class MainActivity extends AppCompatActivity{
     //侧面菜单栏
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private Toolbar toolbar;//顶部栏
-    //滑动切换页面
-    private GestureDetector gestureDetector;
     private AutoCompleteTextView autoCompleteTextView;
     private String[] options = {"0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"};
     private ArrayAdapter<String> adapter;
@@ -96,24 +92,34 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                         // 处理菜单项1的点击事件
                         break;
                     case R.id.navigation_item_share:
-                        // 处理菜单项1的点击事件
                         startActivity(new Intent(MainActivity.this, ShareActivity.class));
                         break;
                     case R.id.navigation_item_graph:
-                        // 处理菜单项2的点击事件
                         startActivity(new Intent(MainActivity.this, LineChartActivity.class));
                         break;
                     case R.id.navigation_item_calendar:
-                        // 处理菜单项2的点击事件
                         startActivity(new Intent(MainActivity.this, CalendarActivity2.class));
                         break;
                     case R.id.navigation_item_dailyReadings:
-                        // 处理菜单项2的点击事件
                         startActivity(new Intent(MainActivity.this, DailyReadingsActivity.class));
                         break;
                     case R.id.navigation_item_devicesettings:
-                        // 处理菜单项2的点击事件
                         startActivity(new Intent(MainActivity.this, Ble_ConnectActivity.class));
+                        break;
+                    case R.id.navigation_item_help:
+                        Intent intent1 = new Intent(MainActivity.this, HelpActivity.class);
+                        intent1.putExtra("position",0);
+                        startActivity(intent1);
+                        break;
+                    case R.id.navigation_item_faqs:
+                        Intent intent2 = new Intent(MainActivity.this, HelpActivity.class);
+                        intent2.putExtra("position",1);
+                        startActivity(intent2);
+                        break;
+                    case R.id.navigation_item_contactus:
+                        Intent intent3 = new Intent(MainActivity.this, HelpActivity.class);
+                        intent3.putExtra("position",2);
+                        startActivity(intent3);
                         break;
                     // 处理更多菜单项的点击事件
                 }
@@ -135,10 +141,6 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-        /*
-        滑动切换页面
-        */
-        gestureDetector = new GestureDetector(this, this);
     }
 
 
@@ -149,45 +151,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         Snackbar.make(view, "提交成功", Snackbar.LENGTH_SHORT).show();
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return gestureDetector.onTouchEvent(event) || super.onTouchEvent(event);
-    }
-
-    @Override
-    public boolean onDown(MotionEvent e) {
-        return false;
-    }
-
-    @Override
-    public void onShowPress(MotionEvent e) {
-
-    }
-
-    @Override
-    public boolean onSingleTapUp(MotionEvent e) {
-        return false;
-    }
-
-    @Override
-    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        return false;
-    }
-
-    @Override
-    public void onLongPress(MotionEvent e) {
-
-    }
-
-    @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        float deltaX = e2.getX() - e1.getX();
-        if (deltaX < 0) {
-            // 滑动
-            startActivity(new Intent(this, ShareActivity.class));
-            finish();
-        }
-        return true;
-    }
 
 }
+
+

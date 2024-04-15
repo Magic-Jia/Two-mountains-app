@@ -1,14 +1,5 @@
 package com.example.ble.ui.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.bluetooth.BluetoothAdapter;
@@ -36,12 +27,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.example.ble.R;
 import com.example.ble.adapter.LVDevicesAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import com.example.ble.androidble.BLEDevice;
 import com.example.ble.androidble.ble.BLEManager;
 import com.example.ble.androidble.ble.OnBleConnectListener;
@@ -50,6 +46,9 @@ import com.example.ble.androidble.permission.PermissionListener;
 import com.example.ble.androidble.permission.PermissionRequest;
 import com.example.ble.androidble.util.TypeConversion;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * BLE开发

@@ -1,3 +1,5 @@
 <resources>
       <dimen name="margin_horizontal">8dp</dimen>
+      <dimen name="top_bar_height">45dp</dimen>
+      <dimen name="textSize_reading">10sp</dimen>
 </resources>
