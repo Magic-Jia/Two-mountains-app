@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.twoMountains.ui.activity.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/app_background">
+
+        <!-- 工具栏 -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/top_bar_height"
+            android:background="?attr/colorPrimary" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="User Management"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
+
+            <!--<ImageView
+                android:id="@+id/two_mountains"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="5dp"
+                android:layout_gravity="center"
+                android:minWidth="0dp"
+                android:paddingVertical="0dp"
+                android:paddingHorizontal="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/two_mountains2"
+                android:background="@drawable/shape_icbackground"/>-->
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:orientation="vertical">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"></androidx.viewpager.widget.ViewPager>
+
+            <com.flyco.tablayout.CommonTabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                app:tl_iconHeight="27dp"
+                app:tl_iconWidth="27dp"
+                app:tl_indicator_color="@color/colorPrimary"
+                app:tl_indicator_height="0dp"
+                app:tl_textSelectColor="@color/colorPrimary"
+                app:tl_textUnselectColor="#cdcdcd"
+                app:tl_textsize="10sp"
+                app:tl_underline_color="#FFFFFF"
+                app:tl_underline_height="0dp" />
+
+        </LinearLayout>-->
+
+        <com.flyco.tablayout.CommonTabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="230dp"
+            android:layout_height="35dp"
+            android:layout_below="@id/toolbar"
+            android:layout_centerHorizontal="true"
+            app:tl_indicator_color="@color/colorPrimary"
+            app:tl_textSelectColor="@color/colorPrimary"
+            app:tl_textUnselectColor="@android:color/darker_gray"
+            tl:tl_iconVisible="false"
+            tl:tl_indicator_corner_radius="1.5dp"
+            tl:tl_indicator_height="3dp"
+            tl:tl_indicator_width="10dp"
+            tl:tl_textsize="14sp" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tabLayout"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            />
+
+    </RelativeLayout>
+
+    <!-- 侧边菜单 -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

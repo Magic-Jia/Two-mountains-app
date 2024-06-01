@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary50">#8048A8FF</color>
     <color name="blue_table">#489df7</color>
     <color name="app_background">#E4F2FD</color>
     <color name="deep_blue">#2C6AA3</color>

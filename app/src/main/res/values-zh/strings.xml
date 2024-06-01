@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">双峰戒烟</string>
+    <string name="hello_blank_fragment">你好 空fragment</string>
+    <string name="drawer_open">打开侧边栏</string>
+    <string name="drawer_close">关闭侧边栏</string>
+    <string name="language_selection">选择您的语言</string>
+    <string name="english">英文</string>
+    <string name="chinese">中文</string>
+    <string name="start_setup">开始</string>
+    <string name="terms_of_service">服务条款</string>
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>

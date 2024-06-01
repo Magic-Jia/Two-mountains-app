@@ -11,13 +11,13 @@
 
     <group android:checkableBehavior="single">
 
-        <item
+        <!--<item
             android:id="@+id/navigation_item_home"
             android:title="Home"/>
 
         <item
             android:id="@+id/navigation_item_share"
-            android:title="Share"/>
+            android:title="Share"/>-->
 
         <item
             android:id="@+id/navigation_item_graph"
@@ -27,17 +27,17 @@
             android:id="@+id/navigation_item_calendar"
             android:title="Calendar" />
 
-        <item
+        <!--<item
             android:id="@+id/navigation_item_dailyReadings"
-            android:title="Daily Readings" />
+            android:title="Daily Readings" />-->
 
         <item
-            android:id="@+id/navigation_item_devicesettings"
-            android:title="Device Settings" />
+            android:id="@+id/navigation_item_deviceConnection"
+            android:title="Device Connection" />
 
-        <item
+        <!--<item
             android:id="@+id/navigation_item_settings"
-            android:title="Settings" />
+            android:title="Settings" />-->
 
         <!--<item
             android:id="@+id/navigation_item_myprofile"
@@ -59,9 +59,9 @@
             android:id="@+id/navigation_item_contactus"
             android:title="Contact Us" />
 
-        <item
+        <!--<item
             android:id="@+id/navigation_item_abouttwomountains"
-            android:title="About Two Mountains" />
+            android:title="About Two Mountains" />-->
 
         <item
             android:id="@+id/navigation_item_logout"

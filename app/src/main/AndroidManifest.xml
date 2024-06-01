@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <!-- 应用使用蓝牙的权限 -->
+
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 应用使用蓝牙的权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" /> <!-- 启动设备发现或操作蓝牙设置的权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
@@ -10,19 +11,51 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Android 9以及一下系统，需要ACCESS_FINE_LOCATION -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+    <queries>
+        <package android:name="com.tencent.mm" />
+        // 指定微信包名
+    </queries>
+
     <application
-        android:name=".App"
+        android:name="com.example.twoMountains.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/two_mountains7"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.BLE"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".ForgotPasswordActivity"
-            android:exported="false" />
+            android:name=".ui.activity.ProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.DeviceSettingsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.AdministratorMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.AdministratorSignInActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.MusicActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.FMActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.FmListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.FmUpActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.MyFmActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.ForgotPasswordActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.activity.TermsOfServiceActivity"
             android:exported="true" />
@@ -36,8 +69,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.SignInActivity"
+            android:name=".ui.activity.SignUpActivity"
             android:exported="true" />
+        <activity
+            android:name=".ui.activity.UserSignInActivity"
+            android:exported="true"
+            android:launchMode="singleTask" />
         <activity
             android:name=".ui.activity.HelpActivity"
             android:exported="true" />
@@ -54,16 +91,10 @@
             android:name=".ui.activity.BleActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.activity.CalendarActivity"
-            android:exported="true" />
-        <activity
             android:name=".ui.activity.LineChartActivity"
             android:exported="true" />
         <activity
             android:name=".ui.activity.ShareActivity"
-            android:exported="true" />
-        <activity
-            android:name=".test"
             android:exported="true" />
         <activity
             android:name=".ui.activity.Ble_ConnectActivity"
@@ -71,7 +102,19 @@
         <activity
             android:name=".ui.activity.MainActivity"
             android:exported="true"
-            android:label="Two Mountains"></activity>
+            android:label="Two Mountains" />
+
+        <service android:name="com.example.twoMountains.service.MusicService" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.twoMountains.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

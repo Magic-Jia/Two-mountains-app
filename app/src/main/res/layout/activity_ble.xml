@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.activity.BleActivity">
+    tools:context="com.example.twoMountains.ui.activity.BleActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,21 +13,52 @@
         android:orientation="vertical"
         android:background="@color/app_background">
 
-        <!-- 工具栏 -->
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <RelativeLayout
+            android:id="@+id/toolbar1"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" />
+            android:layout_height="wrap_content">
+
+            <!-- 工具栏 -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/top_bar_height"
+                android:background="?attr/colorPrimary">
+
+                <ImageView
+                    android:id="@+id/two_mountains"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/shape_icbackground"
+                    android:minWidth="0dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="0dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/two_mountains2" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="@dimen/top_bar_height"
+                android:layout_height="@dimen/top_bar_height"
+                android:layout_alignParentLeft="true"
+                android:padding="10dp"
+                android:src="@drawable/ic_back"
+                android:clickable="true"/>
+
+        </RelativeLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/toolbar"
+            android:layout_below="@+id/toolbar1"
             android:orientation="vertical"
-            tools:context=".ui.activity.BleActivity"
+            tools:context="com.example.twoMountains.ui.activity.BleActivity"
             android:padding="10dp"
             android:focusableInTouchMode="true">
 
@@ -198,7 +229,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
-                    android:text="Display the received data operation results (successful/failed sending)"
+                    android:text="The result of sending data operation is displayed here"
                     android:textColor="@color/colorPrimary"/>
 
                 <ScrollView
@@ -222,7 +253,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
-                    android:text="The result of sending data operation is displayed here"
+                    android:text="Display the received data operation results (successful/failed sending)"
                     android:textColor="@color/colorPrimary"/>
 
                 <ScrollView
@@ -237,7 +268,7 @@
                         android:layout_height="match_parent"
                         android:padding="10dp"
                         android:textSize="14sp"
-                        android:hint="The result of sending data operation is displayed here"
+                        android:hint="The result of receiving data operation is displayed here"
                         android:textColor="@color/colorPrimary"/>
                 </ScrollView>
 

@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".test">
+    tools:context="com.example.twoMountains.test">
 
     <!-- 主内容布局 -->
     <LinearLayout
@@ -17,7 +17,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="@dimen/top_bar_height"
             android:background="?attr/colorPrimary" />
 
         <!-- 主内容 -->

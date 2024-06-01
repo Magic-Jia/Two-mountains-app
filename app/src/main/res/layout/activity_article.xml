@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/app_background"
-    tools:context=".ui.activity.ArticleActivity">
+    tools:context="com.example.twoMountains.ui.activity.ArticleActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
             android:src="@drawable/two_mountains2"
             android:background="@drawable/shape_icbackground"/>
 
-        <ImageView
+        <!--<ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_toLeftOf="@+id/user_name"
@@ -55,71 +55,93 @@
             android:gravity="center"
             android:text="Emma Smaith"
             android:textColor="#fff"
-            android:textSize="10sp" />
+            android:textSize="10sp" />-->
 
     </RelativeLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="@dimen/margin_horizontal"
-        android:orientation="vertical"
-        android:background="@drawable/shape_background">
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="@dimen/margin_horizontal">
 
-        <!-- 标题 -->
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo ligula eget dolor."
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="10dp"/>
-
-        <!-- 阅读次数 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:orientation="horizontal">
+            android:background="@drawable/shape_background"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_eye"/>
-
+            <!-- 标题 -->
             <TextView
-                android:id="@+id/viewCountTextView"
+                android:id="@+id/titleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="100"
-                android:textSize="13sp"
-                android:paddingEnd="16dp"/>
+                android:layout_marginTop="10dp"
+                android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo ligula eget dolor."
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"/>
+
+            <!-- 阅读次数 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp">
+
+                <ImageView
+                    android:id="@+id/eye"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_eye"/>
+
+                <TextView
+                    android:id="@+id/viewCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/eye"
+                    android:layout_marginStart="8dp"
+                    android:layout_centerVertical="true"
+                    android:text="100"
+                    android:textSize="13sp"
+                    android:paddingEnd="16dp"/>
+
+                <ImageButton
+                    android:id="@+id/star"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:background="@android:color/transparent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/star_grey"/>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="7dp"
+                android:background="@color/grey1"/>
+
+            <!-- 文章内容 -->
+            <TextView
+                android:id="@+id/articleTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo ligula eget dolor.Aenean massa.Cum sociis natoque penatibuset magnis dis parturient montes, nascetur ridiculusmus.Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.Nulla consequat massa quisenim.Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.In enimjusto, rhoncus ut,imperdiet a,venenatis vitae, justo.Nullam dictum felis eu pede mollis pretium.Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi.Aenean vulpu
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo ligula eget dolor.Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculusmus.Donec quam felis, ultricies nec,pellentesque eu, pretium quis, sem.Nulla consequat massa quisenim.Donec pede justo, fringilla vel,aliquet nec, vulputate eget, arcu.
+"
+                android:textSize="11sp"
+                android:padding="16dp"/>
 
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="7dp"
-            android:background="@color/grey1"/>
-
-        <!-- 文章内容 -->
-        <TextView
-            android:id="@+id/articleTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo ligula eget dolor.Aenean massa.Cum sociis natoque penatibuset magnis dis parturient montes, nascetur ridiculusmus.Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.Nulla consequat massa quisenim.Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.In enimjusto, rhoncus ut,imperdiet a,venenatis vitae, justo.Nullam dictum felis eu pede mollis pretium.Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi.Aenean vulpu
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo ligula eget dolor.Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculusmus.Donec quam felis, ultricies nec,pellentesque eu, pretium quis, sem.Nulla consequat massa quisenim.Donec pede justo, fringilla vel,aliquet nec, vulputate eget, arcu.
-"
-            android:textSize="11sp"
-            android:padding="16dp"/>
-
-    </LinearLayout>
+    </ScrollView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

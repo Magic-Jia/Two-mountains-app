@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/app_background"
-    tools:context=".ui.activity.TermsOfServiceActivity">
+    tools:context="com.example.twoMountains.ui.activity.TermsOfServiceActivity">
 
     <ImageView
         android:id="@+id/two_mountains"
@@ -38,25 +38,32 @@
             android:layout_gravity="center"
             android:layout_marginTop="7dp"
             android:layout_marginHorizontal="@dimen/margin_horizontal"
-            android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes, nasceturridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.Nulla
-consequat massa quis enim. Donec pede justo, fringilla vel,aliquet nec, vulputate eget, arcu. Ilnenim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-"
+            android:text="By accessing our app, Two Mountains, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing Two Mountains. The materials contained in Two Mountains are protected by applicable copyright and trademark law."
             android:textSize="@dimen/textSize_reading"
             android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="@dimen/margin_horizontal"
-            android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes, nasceturridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.Nulla
-consequat massa quis enim. Donec pede justo, fringilla vel,aliquet nec, vulputate eget, arcu. Ilnenim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+            android:text="Use License"
+            android:textSize="@dimen/textSize_reading"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="7dp"
+            android:layout_marginHorizontal="@dimen/margin_horizontal"
+            android:text="Permission is granted to temporarily download one copy of Two Mountains per device for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:\nmodify or copy the materials;\nuse the materials for any commercial purpose, or for any public display (commercial or non-commercial);\nattempt to decompile or reverse engineer any software contained in Two Mountains;\nremove any copyright or other proprietary notations from the materials;\ntransfer the materials to another person or “mirror” the materials on any other server.\nThis license shall automatically terminate if you violate any of these restrictions and may be terminated by Two Mountains Psy Tech Limited at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format.
 "
             android:textSize="@dimen/textSize_reading"
             android:textStyle="bold"/>
 
-        <TextView
+        <!--<TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -88,7 +95,7 @@ consequat massa quis enim. Donec pede justo, fringilla vel,aliquet nec, vulputat
 consequat massa quis enim. Donec pede justo, fringilla vel,aliquet nec, vulputate eget, arcu. Ilnenim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
 "
             android:textSize="@dimen/textSize_reading"
-            android:textStyle="bold"/>
+            android:textStyle="bold"/>-->
 
         <!--<TextView
             android:layout_width="wrap_content"

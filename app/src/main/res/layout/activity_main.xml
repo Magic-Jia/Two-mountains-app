@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.activity.MainActivity">
+    tools:context="com.example.twoMountains.ui.activity.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,399 +17,54 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" />
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/two_mountains"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            android:background="@color/white">
+            android:layout_height="@dimen/top_bar_height"
+            android:background="?attr/colorPrimary" >
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginTop="10dp"
-                android:scaleType="centerInside"
-                android:layout_gravity="center"
-                android:src="@drawable/two_mountains"/>
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:text="STOP-SMOKING PROGRAM"
-                android:textAppearance="@color/black"
-                android:textSize="12sp"
-                android:textStyle="bold"/>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/DailyQuestions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/two_mountains"
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="8dp"
-            android:background="@drawable/shape_background"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="Daily Questions"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="10sp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:text="How Movtivated are you to QUIT smoking?"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="10sp"/>
-
-            <AutoCompleteTextView
-                android:id="@+id/motivation2"
-                android:layout_width="50dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:background="@drawable/shape_spinner"
-                android:completionThreshold="1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="15dp"
-                android:text="How many cigarettes did you smoke Yesterday?"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:textSize="10sp"/>
-
-            <EditText
-                android:id="@+id/quantity_cigarettes"
-                android:layout_width="50dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:textColor="@color/black"
-                android:background="@drawable/shape_spinner"/>
-
-            <Button
-                android:id="@+id/button_submit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:id="@+id/two_mountains"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="5dp"
                 android:layout_gravity="center"
                 android:minWidth="0dp"
-                android:minHeight="0dp"
-                android:paddingVertical="-5dp"
-                android:text="SUBMIT"
-                android:textSize="10sp"
-                android:textStyle="bold"/>
+                android:paddingVertical="0dp"
+                android:paddingHorizontal="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/two_mountains2"
+                android:background="@drawable/shape_icbackground"/>
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <FrameLayout
-            android:id="@+id/framelayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/DailyQuestions"
-            android:layout_marginTop="12dp"
-            android:layout_marginHorizontal="8dp">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:alpha="0.3"
-                android:src="@drawable/small_grass"
-                android:background="@drawable/shape_grass"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/shape_grass"/>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:background="@android:color/transparent"
-                android:orientation="vertical">
-
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="13dp"
-                    android:layout_alignParentTop="true"
-                    android:orientation="horizontal">
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Started the Program"
-                            android:textAppearance="@color/black"
-                            android:textSize="15sp"
-                            android:textStyle="bold"/>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="32dp"
-                                android:layout_height="32dp"
-                                android:scaleType="centerCrop"
-                                android:background="@android:color/transparent"
-                                android:src="@drawable/startdate"/>
-
-                            <androidx.appcompat.widget.LinearLayoutCompat
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="0dp"
-                                    android:minHeight="0dp"
-                                    android:minWidth="0dp"
-                                    android:padding="0dp"
-                                    android:textSize="14sp"
-                                    android:textColor="@color/black"
-                                    android:background="@android:color/transparent"
-                                    android:textAllCaps="false"
-                                    android:text="Start Date"/>
-
-                                <TextView
-                                    android:id="@+id/tv_StartDate"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="0dp"
-                                    android:minHeight="0dp"
-                                    android:minWidth="0dp"
-                                    android:padding="0dp"
-                                    android:textColor="@color/black"
-                                    android:background="@android:color/transparent"
-                                    android:textAllCaps="false"
-                                    android:textSize="9sp"
-                                    android:text="Waiting to start"/>
-
-                            </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:orientation="horizontal">
-
-                            <ImageButton
-                                android:layout_width="32dp"
-                                android:layout_height="32dp"
-                                android:scaleType="centerCrop"
-                                android:background="@android:color/transparent"
-                                android:src="@drawable/quitdate"/>
-
-                            <androidx.appcompat.widget.LinearLayoutCompat
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:orientation="vertical">
-
-                                <Button
-                                    android:id="@+id/button_QuitDate"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="-8dp"
-                                    android:minHeight="0dp"
-                                    android:minWidth="0dp"
-                                    android:padding="0dp"
-                                    android:textSize="14sp"
-                                    android:textColor="@color/black"
-                                    android:background="@android:color/transparent"
-                                    android:textAllCaps="false"
-                                    android:text="Quit Date"/>
-
-                                <RelativeLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="-10dp">
-
-                                    <Button
-                                        android:id="@+id/button_QuitTime"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:minHeight="0dp"
-                                        android:minWidth="0dp"
-                                        android:padding="0dp"
-                                        android:textColor="@color/black"
-                                        android:background="@android:color/transparent"
-                                        android:textAllCaps="false"
-                                        android:textSize="9sp"
-                                        android:text="Has to be determined"/>
-
-                                    <ImageButton
-                                        android:layout_width="9dp"
-                                        android:layout_height="9dp"
-                                        android:layout_toRightOf="@+id/button_QuitTime"
-                                        android:layout_marginLeft="2dp"
-                                        android:layout_centerVertical="true"
-                                        android:scaleType="centerCrop"
-                                        android:src="@drawable/i"/>
-
-                                </RelativeLayout>
-
-                            </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:id="@+id/LinearLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:onClick="onClick"
-                        android:clickable="true" >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Smoke-Free Days"
-                            android:textAppearance="@color/black"
-                            android:textSize="15sp"
-                            android:textStyle="bold"/>
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                </androidx.appcompat.widget.LinearLayoutCompat>
-
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="1dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="15dp"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/grey1"/>
-
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/TodayReading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/framelayout"
-            android:layout_marginLeft="8dp"
-            android:text="Today's Reading"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:background="@android:color/transparent"/>
+        </androidx.appcompat.widget.Toolbar>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/TodayReading"
-            android:layout_marginTop="7dp"
-            android:layout_marginHorizontal="8dp"
-            android:background="@drawable/shape_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
             android:orientation="vertical">
 
-            <RelativeLayout
-                android:id="@+id/reading"
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/reading2"
-                android:layout_marginTop="0dp"
-                android:layout_marginHorizontal="8dp"
-                android:paddingVertical="-5dp"
-                android:background="@drawable/shape_readings">
+                android:layout_height="0dp"
+                android:layout_weight="1">
+            </androidx.viewpager.widget.ViewPager>
 
-                <TextView
-                    android:id="@+id/number1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="5dp"
-                    android:layout_centerVertical="true"
-                    android:paddingVertical="-5dp"
-                    android:text="1"
-                    android:textSize="10sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/green"
-                    android:background="@android:color/transparent"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:minHeight="0dp"
-                    android:minWidth="0dp"
-                    android:layout_toRightOf="@+id/number1"
-                    android:layout_marginLeft="5dp"
-                    android:layout_centerVertical="true"
-                    android:paddingVertical="-5dp"
-                    android:text="How to keep your motivation high?"
-                    android:textStyle="bold"
-                    android:textAllCaps="false"
-                    android:textSize="10sp"
-                    android:textColor="@color/black"
-                    android:background="@android:color/transparent"/>
-
-                <ImageButton
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:scaleType="centerCrop"
-                    android:background="@android:color/transparent"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/star_grey"/>
-            </RelativeLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo ligula eget dolor.Aenean massa.Cum sociis natoque penatibuset magnis dis parturient montes, nascetur ridiculusmus.Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.Nulla consequat massa quisenim.Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.In enimjusto, rhoncus ut,imperdiet a,venenatis vitae, justo.Nullam dictum felis eu pede mollis pretium.Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi.Aenean vulpu
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.Aenean commodo ligula eget dolor.Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculusmus.Donec quam felis, ultricies nec,pellentesque eu, pretium quis, sem.Nulla consequat massa quisenim.Donec pede justo, fringilla vel,aliquet nec, vulputate eget, arcu.
-"
-                android:textColor="@color/black"
-                android:textSize="8sp"/>
+            <com.flyco.tablayout.CommonTabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                app:tl_iconHeight="27dp"
+                app:tl_iconWidth="27dp"
+                app:tl_indicator_color="@color/colorPrimary"
+                app:tl_indicator_height="0dp"
+                app:tl_textSelectColor="@color/colorPrimary"
+                app:tl_textUnselectColor="#cdcdcd"
+                app:tl_textsize="10sp"
+                app:tl_underline_color="#FFFFFF"
+                app:tl_underline_height="0dp" />
 
         </LinearLayout>
+
 
     </RelativeLayout>
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginTop="10dp"
     android:layout_marginHorizontal="8dp"
-    tools:context=".ui.fragment.MonthFragment"
+    tools:context="com.example.twoMountains.ui.fragment.MonthFragment"
     android:background="@color/app_background"
     android:orientation="vertical">
 
@@ -14,13 +14,61 @@
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/yAxisTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/linechart1"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:text="Motivation"
+        android:textSize="10sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/xAxisTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="date"
+        android:layout_alignBottom="@id/linechart1"
+        android:layout_alignRight="@id/linechart1"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="10dp"
+        android:textSize="10sp"
+        android:textColor="@color/black"/>
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/linechart2"
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="400dp"
+        android:layout_below="@id/linechart1"
         android:layout_marginTop="10dp"/>
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+    <TextView
+        android:id="@+id/yAxisTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/linechart2"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:text="Amount"
+        android:textSize="10sp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/xAxisTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="date"
+        android:layout_alignBottom="@id/linechart2"
+        android:layout_alignRight="@id/linechart2"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="10sp"
+        android:textColor="@color/black"/>
+
+</RelativeLayout>

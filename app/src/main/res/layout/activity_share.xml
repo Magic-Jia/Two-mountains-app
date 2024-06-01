@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.activity.ShareActivity">
+    tools:context="com.example.twoMountains.ui.activity.ShareActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:layout_below="@+id/toolbar"
             android:orientation="vertical"
             android:background="@color/app_background"
-            tools:context=".ui.activity.ShareActivity">
+            tools:context="com.example.twoMountains.ui.activity.ShareActivity">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/two_mountains"
@@ -232,10 +232,13 @@
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                         <androidx.appcompat.widget.LinearLayoutCompat
+                            android:id="@+id/LinearLayout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:onClick="onClick"
+                            android:clickable="true" >
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -245,6 +248,31 @@
                                 android:textAppearance="@color/black"
                                 android:textSize="15sp"
                                 android:textStyle="bold"/>
+
+                            <FrameLayout
+                                android:layout_width="80dp"
+                                android:layout_height="100dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/shape_datebackground1">
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="2dp"
+                                    android:background="@color/white"
+                                    android:layout_gravity="center_vertical"/>
+
+                                <TextView
+                                    android:id="@+id/tv_smokeFreeDays"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="0"
+                                    android:textSize="35sp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold"/>
+
+                            </FrameLayout>
 
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -277,12 +305,13 @@
                         <ImageButton
                             android:layout_width="40dp"
                             android:layout_height="40dp"
+                            android:layout_gravity="center"
                             android:layout_marginHorizontal="10dp"
                             android:scaleType="centerCrop"
                             android:background="@android:color/transparent"
                             android:src="@drawable/ic_wechat"/>
 
-                        <ImageButton
+                        <!--<ImageButton
                             android:layout_width="43dp"
                             android:layout_height="43dp"
                             android:layout_marginHorizontal="10dp"
@@ -296,7 +325,7 @@
                             android:layout_marginHorizontal="10dp"
                             android:scaleType="centerCrop"
                             android:background="@android:color/transparent"
-                            android:src="@drawable/googleplus"/>
+                            android:src="@drawable/googleplus"/>-->
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 

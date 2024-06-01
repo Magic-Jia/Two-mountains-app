@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.activity.CalendarActivity2">
+    tools:context="com.example.twoMountains.ui.activity.CalendarActivity2">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,23 +13,95 @@
         android:orientation="vertical"
         android:background="@color/app_background">
 
-        <!-- 工具栏 -->
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <RelativeLayout
+            android:id="@+id/toolbar1"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" />
+            android:layout_height="wrap_content">
+
+            <!-- 工具栏 -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/top_bar_height"
+                android:background="?attr/colorPrimary">
+
+                <ImageView
+                    android:id="@+id/two_mountains"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginVertical="5dp"
+                    android:background="@drawable/shape_icbackground"
+                    android:minWidth="0dp"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="0dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/two_mountains2" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="@dimen/top_bar_height"
+                android:layout_height="@dimen/top_bar_height"
+                android:layout_alignParentLeft="true"
+                android:padding="10dp"
+                android:src="@drawable/ic_back"
+                android:clickable="true"/>
+
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/smokeFreeDays"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/toolbar1"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/shape_datebackground2">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/white"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/tv_smokeFreeDays"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="0"
+                android:textSize="35sp"
+                android:textColor="@color/green"
+                android:textStyle="bold"/>
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_smokeFreeDays2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/smokeFreeDays"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Smoke-Free Days!"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/toolbar"
-            android:layout_marginTop="10dp"
+            android:layout_below="@+id/tv_smokeFreeDays2"
+            android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="@dimen/margin_horizontal"
             android:orientation="vertical"
             android:background="@drawable/shape_background"
-            tools:context="com.example.ble.ui.activity.CalendarActivity2">
+            tools:context="com.example.twoMountains.com.example.twoMountains.ui.activity.CalendarActivity2">
 
             <RelativeLayout
                 android:padding="10dp"
@@ -65,10 +137,12 @@
                     android:layout_height="wrap_content" />
             </RelativeLayout>
 
-            <com.example.ble.view.CalendarView
+            <com.example.twoMountains.view.CalendarView
                 android:id="@+id/calendar"
-                android:layout_width="300dp"
-                android:layout_height="300dp" />
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginBottom="6dp"/>
         </LinearLayout>
 
     </RelativeLayout>

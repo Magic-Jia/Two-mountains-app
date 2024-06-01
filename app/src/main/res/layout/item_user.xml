@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/shape_home_item_3"
+    android:elevation="1dp"
+    android:orientation="vertical"
+    android:paddingBottom="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_home_item_2"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!--<de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userIcon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_2"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="1px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="程楠"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/userAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="15210669565"
+            android:textColor="#AEAEAE"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="@+id/userName"
+            app:layout_constraintTop_toBottomOf="@id/userName" />
+
+        <TextView
+            android:id="@+id/tv_startDate1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="5dp"
+            android:elevation="1dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:text="Start Date:"
+            android:textColor="@color/black"
+            app:layout_constraintRight_toLeftOf="@id/tv_startDate2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_startDate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="10dp"
+            android:text="2024-04-25"
+            app:layout_constraintBottom_toBottomOf="@id/tv_startDate1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_quitDate1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:elevation="1dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:text="Quit Date:"
+            android:textColor="@color/black"
+            app:layout_constraintRight_toLeftOf="@id/tv_quitDate2"
+            app:layout_constraintTop_toBottomOf="@id/tv_startDate2" />
+
+        <TextView
+            android:id="@+id/tv_quitDate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="2024-05-07"
+            app:layout_constraintBottom_toBottomOf="@id/tv_quitDate1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_startDate2"/>
+
+        <TextView
+            android:id="@+id/tv_smokeFreeDays1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:elevation="1dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:text="Smoke-Free Days:"
+            android:textColor="@color/black"
+            app:layout_constraintRight_toLeftOf="@id/tv_smokeFreeDays2"
+            app:layout_constraintTop_toBottomOf="@id/tv_quitDate2" />
+
+        <TextView
+            android:id="@+id/tv_smokeFreeDays2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="0"
+            app:layout_constraintBottom_toBottomOf="@id/tv_smokeFreeDays1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_quitDate2"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <Button
+            android:id="@+id/btn_graph"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingVertical="-5dp"
+            android:text="GRAPH"
+            android:textSize="10sp"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btn_calender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingVertical="-5dp"
+            android:text="CALENDER"
+            android:textSize="10sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</LinearLayout>
