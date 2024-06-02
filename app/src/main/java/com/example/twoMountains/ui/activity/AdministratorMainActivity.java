@@ -124,7 +124,7 @@ public class AdministratorMainActivity extends AppCompatActivity{
                         startActivity(new Intent(AdministratorMainActivity.this, Ble_ConnectActivity.class));
                         break;
                     case R.id.navigation_item_changepassword:
-                        startActivity(new Intent(AdministratorMainActivity.this, ForgotPasswordActivity.class));
+                        startActivity(new Intent(AdministratorMainActivity.this, ChangePasswordActivity.class));
                         break;
                     case R.id.navigation_item_help:
                         Intent intent1 = new Intent(AdministratorMainActivity.this, HelpActivity.class);

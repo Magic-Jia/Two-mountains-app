@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity{
                         startActivity(new Intent(MainActivity.this, Ble_ConnectActivity.class));
                         break;
                     case R.id.navigation_item_changepassword:
-                        startActivity(new Intent(MainActivity.this, ForgotPasswordActivity.class));
+                        startActivity(new Intent(MainActivity.this, ChangePasswordActivity.class));
                         break;
                     case R.id.navigation_item_help:
                         Intent intent1 = new Intent(MainActivity.this, HelpActivity.class);

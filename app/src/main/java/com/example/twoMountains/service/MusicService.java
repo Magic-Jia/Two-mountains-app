@@ -25,7 +25,11 @@ public class MusicService extends Service {
     }
 
     public interface OnPreparedListener {
-        public void onPrepared();
+        void onPrepared();
+    }
+
+    public interface OnCompletionListener {
+        void onCompletion();
     }
 
     private Executor executor = Executors.newSingleThreadExecutor();
@@ -33,11 +37,15 @@ public class MusicService extends Service {
     public class MusicBinder extends Binder {
 
         private boolean prepared = false;
-
         private OnPreparedListener preparedListener;
+        private OnCompletionListener completionListener;
 
         public void setPreparedListener(OnPreparedListener preparedListener) {
             this.preparedListener = preparedListener;
+        }
+
+        public void setOnCompletionListener(OnCompletionListener completionListener) {
+            this.completionListener = completionListener;
         }
 
         public void setDataSource(String path) {
@@ -57,6 +65,14 @@ public class MusicService extends Service {
                                     preparedListener.onPrepared();
                                 }
                                 mp.start();
+                            }
+                        });
+                        player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                            @Override
+                            public void onCompletion(MediaPlayer mp) {
+                                if (completionListener != null) {
+                                    completionListener.onCompletion();
+                                }
                             }
                         });
                     } catch (IOException e) {

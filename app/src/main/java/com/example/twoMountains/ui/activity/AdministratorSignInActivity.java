@@ -46,7 +46,7 @@ public class AdministratorSignInActivity extends AppCompatActivity {
         btn_forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdministratorSignInActivity.this,ForgotPasswordActivity.class));
+                startActivity(new Intent(AdministratorSignInActivity.this, ChangePasswordActivity.class));
             }
         });
         btn_signIn.setOnClickListener(new View.OnClickListener() {

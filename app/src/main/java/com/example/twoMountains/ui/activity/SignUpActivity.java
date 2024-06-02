@@ -1,26 +1,41 @@
 package com.example.twoMountains.ui.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.twoMountains.App;
 import com.example.twoMountains.R;
 import com.example.twoMountains.bean.UserBean;
 import com.example.twoMountains.db.DBCreator;
 import com.example.twoMountains.util.SomeUtil;
+import com.tencent.mm.opensdk.modelmsg.SendAuth;
 
 public class SignUpActivity extends AppCompatActivity {
     private EditText accountEdit;
     private EditText passwordEdit;
     private Button btn_signIn;
     private Button btn_signUp;
+    private ImageButton wechatLoginBtn;
     private boolean isRegister = true;
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if ("WX_LOGIN_SUCCESS".equals(intent.getAction())) {
+                finish();
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        wechatLoginBtn = findViewById(R.id.wechatLoginBtn);
         accountEdit = findViewById(R.id.phoneEdit);
         passwordEdit = findViewById(R.id.pwdEdit);
         btn_signIn = findViewById(R.id.btn_signIn);
@@ -54,10 +70,19 @@ public class SignUpActivity extends AppCompatActivity {
                 register();
             }
         });
+        wechatLoginBtn.setOnClickListener(v -> {
+            if (App.wxApi.isWXAppInstalled()) {
+                sendWechatAuthRequest();
+            } else {
+                Toast.makeText(this, "Wechat not installed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initData() {
-
+        // 注册广播接收器
+        IntentFilter filter = new IntentFilter("WX_LOGIN_SUCCESS");
+        registerReceiver(broadcastReceiver, filter);
     }
 
     private void register() {
@@ -91,11 +116,26 @@ public class SignUpActivity extends AppCompatActivity {
             }
             UserBean user = new UserBean();
             user.account = account;
+            user.phone = account;
             user.password = password;
             DBCreator.getUserDao().registerUser(user);
             Toast.makeText(this, "Registered successfully", Toast.LENGTH_SHORT).show();
             finish();
             startActivity(new Intent(SignUpActivity.this, UserSignInActivity.class));
         }
+    }
+
+    private void sendWechatAuthRequest() {
+        final SendAuth.Req req = new SendAuth.Req();
+        req.scope = "snsapi_userinfo";
+        req.state = "wechat_sdk_demo_test";
+        App.wxApi.sendReq(req);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // 注销广播接收器
+        unregisterReceiver(broadcastReceiver);
     }
 }

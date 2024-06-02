@@ -32,7 +32,6 @@ import java.util.Date;
 
 import jp.wasabeef.blurry.Blurry;
 
-
 public class MusicActivity extends BaseActivity {
     private SeekBar progressBar;
     private ImageView icon;
@@ -48,6 +47,7 @@ public class MusicActivity extends BaseActivity {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             musicBinder = (MusicService.MusicBinder) service;
+
             musicBinder.setPreparedListener(new MusicService.OnPreparedListener() {
                 @Override
                 public void onPrepared() {
@@ -59,19 +59,30 @@ public class MusicActivity extends BaseActivity {
                             handler.sendEmptyMessage(0);
                         }
                     });
-
                 }
             });
+
+            musicBinder.setOnCompletionListener(new MusicService.OnCompletionListener() {
+                @Override
+                public void onCompletion() {
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            isPlaying = false;
+                            playBtn.setImageResource(R.drawable.ic_play);
+                        }
+                    });
+                }
+            });
+
             musicBinder.setDataSource(fmBean.fmFilePath);
-
-
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-
         }
     };
+
     @SuppressLint("SimpleDateFormat")
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("mm:ss");
 
@@ -103,23 +114,23 @@ public class MusicActivity extends BaseActivity {
                 } else {
                     playBtn.setImageResource(R.drawable.ic_play);
                 }
-
             }
         });
+
         progressBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                musicBinder.seekToProgress(seekBar.getProgress());
+                if (musicBinder != null) {
+                    musicBinder.seekToProgress(seekBar.getProgress());
+                }
             }
         });
     }
@@ -131,28 +142,18 @@ public class MusicActivity extends BaseActivity {
         fmBean = (FMBean) getIntent().getSerializableExtra("fmBean");
 
         StatusBarUtil.setTranslucentForImageView(this, 0, findViewById(R.id.titleView));
-//
         bindService(new Intent(this, MusicService.class), connection, BIND_AUTO_CREATE);
 
-
-        Glide.with(this).asBitmap()
-                .load(fmBean.faceFilePath)
-                .into(new SimpleTarget<Bitmap>() {
-                    @Override
-                    public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                        icon.setImageBitmap(resource);
-                        Blurry.with(MusicActivity.this)
-                                .radius(6)
-                                .sampling(10)
-                                .async()
-                                .from(resource)
-                                .into(blurView);
-                    }
-                });
+        Glide.with(this).asBitmap().load(fmBean.faceFilePath).into(new SimpleTarget<Bitmap>() {
+            @Override
+            public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+                icon.setImageBitmap(resource);
+                Blurry.with(MusicActivity.this).radius(6).sampling(10).async().from(resource).into(blurView);
+            }
+        });
 
         fmTitleTv.setText(fmBean.fmTitle);
         fmAnchorTv.setText("author：" + fmBean.fmAuthor);
-
     }
 
     @Override
@@ -163,7 +164,6 @@ public class MusicActivity extends BaseActivity {
     @RequiresApi(api = 31)
     @Override
     protected void findViewsById() {
-
         blurView = findViewById(R.id.blurView);
         fmTitleTv = findViewById(R.id.fmTitleTv);
         playBtn = findViewById(R.id.playBtn);
@@ -172,17 +172,17 @@ public class MusicActivity extends BaseActivity {
         fmAnchorTv = findViewById(R.id.fmAnchorTv);
         currentProgress = findViewById(R.id.currentProgress);
         maxProgress = findViewById(R.id.maxProgress);
-
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        musicBinder.pause();
+        if (musicBinder != null) {
+            musicBinder.pause();
+        }
         unbindService(connection);
         connection = null;
         musicBinder = null;
         handler.removeMessages(0);
-
     }
 }

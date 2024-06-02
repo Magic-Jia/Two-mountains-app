@@ -13,7 +13,7 @@ import com.example.twoMountains.R;
 import com.example.twoMountains.bean.UserBean;
 import com.example.twoMountains.db.DBCreator;
 
-public class ForgotPasswordActivity extends AppCompatActivity {
+public class ChangePasswordActivity extends AppCompatActivity {
     private ImageView imBtn_back;
     private EditText accountEdit;
     private EditText oldPasswordEdit;
@@ -22,7 +22,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot_password);
+        setContentView(R.layout.activity_change_password);
         //初始化视图
         initView();
         //初始化监听
@@ -54,15 +54,15 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 String newPassword = newPasswordEdit.getText().toString();
                 UserBean userBean = DBCreator.getUserDao().queryUserByAccount(account);
                 if(DBCreator.getUserDao().queryUserByAccount(account) == null){
-                    Toast.makeText(ForgotPasswordActivity.this,"Account or password error",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangePasswordActivity.this,"Account or password error",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(userBean.password.equals(oldPassword)){
                     userBean.password=newPassword;
                     DBCreator.getUserDao().updateUser(userBean);
-                    Toast.makeText(ForgotPasswordActivity.this,"Password has been changed",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangePasswordActivity.this,"Password has been changed",Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(ForgotPasswordActivity.this,"Account or password error",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangePasswordActivity.this,"Account or password error",Toast.LENGTH_SHORT).show();
                     return;
                 }
                 finish();

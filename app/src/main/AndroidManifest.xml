@@ -27,6 +27,24 @@
         android:theme="@style/Theme.BLE"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".ui.activity.ForgetPasswordActivity"
+            android:exported="true" />
+        <!-- 微信登录Activity -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="wxb4ba3c02aa476ea1" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ui.activity.ProfileActivity"
             android:exported="true" />
         <activity
@@ -54,7 +72,7 @@
             android:name=".ui.activity.MyFmActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.activity.ForgotPasswordActivity"
+            android:name=".ui.activity.ChangePasswordActivity"
             android:exported="true" />
         <activity
             android:name=".ui.activity.TermsOfServiceActivity"

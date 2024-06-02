@@ -11,12 +11,15 @@ import com.example.twoMountains.bean.FMBean;
 import com.example.twoMountains.bean.UserBean;
 import com.example.twoMountains.db.DBCreator;
 import com.example.twoMountains.util.PreferenceUtil;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 public class App extends Application {
     private static Context context;
     public static UserBean user;
     public static BLEManager bleManager;
     public static boolean bleConnectState = false;
+    public static IWXAPI wxApi;
 
     public void onCreate() {
         super.onCreate();
@@ -32,7 +35,9 @@ public class App extends Application {
             PreferenceUtil.getInstance().save("firstIn", false);
             AppInit();
         }
-
+        // 初始化微信SDK
+        wxApi = WXAPIFactory.createWXAPI(this, "wx68c3d9bac60154ed", true);
+        wxApi.registerApp("wx68c3d9bac60154ed");
 
         /*DBCreator.getCigaretteDataDao().deleteCigaretteDataById(1);
         DBCreator.getCigaretteDataDao().deleteCigaretteDataById(2);*/
