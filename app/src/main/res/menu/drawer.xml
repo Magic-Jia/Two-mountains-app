@@ -21,11 +21,11 @@
 
         <item
             android:id="@+id/navigation_item_graph"
-            android:title="Graph" />
+            android:title="@string/Graph" />
 
         <item
             android:id="@+id/navigation_item_calendar"
-            android:title="Calendar" />
+            android:title="@string/CALENDAR" />
 
         <!--<item
             android:id="@+id/navigation_item_dailyReadings"
@@ -33,11 +33,11 @@
 
         <item
             android:id="@+id/navigation_item_deviceConnection"
-            android:title="Device Connection" />
+            android:title="@string/Device_Connection" />
 
-        <!--<item
-            android:id="@+id/navigation_item_settings"
-            android:title="Settings" />-->
+        <item
+            android:id="@+id/navigation_item_deviceSettings"
+            android:title="@string/Device_Settings" />
 
         <!--<item
             android:id="@+id/navigation_item_myprofile"
@@ -45,27 +45,27 @@
 
         <item
             android:id="@+id/navigation_item_changepassword"
-            android:title="Change Password" />
+            android:title="@string/Change_password" />
 
         <item
             android:id="@+id/navigation_item_help"
-            android:title="Help" />
+            android:title="@string/Help" />
 
         <item
             android:id="@+id/navigation_item_faqs"
-            android:title="FAQ's" />
+            android:title="@string/FAQs" />
 
         <item
             android:id="@+id/navigation_item_contactus"
-            android:title="Contact Us" />
+            android:title="@string/Contact_Us" />
 
-        <!--<item
-            android:id="@+id/navigation_item_abouttwomountains"
-            android:title="About Two Mountains" />-->
+        <item
+            android:id="@+id/navigation_item_language"
+            android:title="@string/Language" />
 
         <item
             android:id="@+id/navigation_item_logout"
-            android:title="Logout" />
+            android:title="@string/Logout" />
         <!--随意添加菜单选项-->
     </group>
 </menu>

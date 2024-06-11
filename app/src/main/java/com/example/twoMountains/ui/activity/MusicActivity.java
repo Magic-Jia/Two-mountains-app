@@ -74,7 +74,6 @@ public class MusicActivity extends BaseActivity {
                     });
                 }
             });
-
             musicBinder.setDataSource(fmBean.fmFilePath);
         }
 
@@ -153,7 +152,7 @@ public class MusicActivity extends BaseActivity {
         });
 
         fmTitleTv.setText(fmBean.fmTitle);
-        fmAnchorTv.setText("author：" + fmBean.fmAuthor);
+        fmAnchorTv.setText(getResources().getString(R.string.author) + fmBean.fmAuthor);
     }
 
     @Override

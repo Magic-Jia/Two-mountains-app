@@ -2,14 +2,11 @@ package com.example.twoMountains.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -23,18 +20,12 @@ import com.example.twoMountains.util.PreferenceUtil;
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
 import com.flyco.tablayout.listener.OnTabSelectListener;
-import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdministratorMainActivity extends AppCompatActivity{
-    //侧面菜单栏
-    private DrawerLayout drawerLayout;
-    private NavigationView navigationView;
-    private ActionBarDrawerToggle actionBarDrawerToggle;
-    private Toolbar toolbar;//顶部栏
-
+    private ImageView btn_back;
     private CommonTabLayout tabLayout;
     private ViewPager viewPager;
     private List<Fragment> fragments = new ArrayList<>();
@@ -58,15 +49,21 @@ public class AdministratorMainActivity extends AppCompatActivity{
 
     }
     private void initView() {
-        //侧边抽屉
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.navigationView);
-        toolbar = findViewById(R.id.toolbar);
-
+        btn_back = findViewById(R.id.backBtn);
         viewPager = findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tabLayout);
     }
     private void iniListener() {
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PreferenceUtil.getInstance().save("logger", "");
+                App.user = null;
+                startActivity(new Intent(AdministratorMainActivity.this, UserSignInActivity.class));
+                finish();
+            }
+        });
+
         ArrayList<CustomTabEntity> tabEntities = new ArrayList<>();
         tabEntities.add(new MyEntry("Time sequence"));
         tabEntities.add(new MyEntry("Ranking list"));
@@ -108,59 +105,8 @@ public class AdministratorMainActivity extends AppCompatActivity{
 
             }
         });
-
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                // 处理菜单项点击事件
-                switch (item.getItemId()) {
-                    case R.id.navigation_item_graph:
-                        startActivity(new Intent(AdministratorMainActivity.this, LineChartActivity.class));
-                        break;
-                    case R.id.navigation_item_calendar:
-                        startActivity(new Intent(AdministratorMainActivity.this, CalendarActivity2.class));
-                        break;
-                    case R.id.navigation_item_deviceConnection:
-                        startActivity(new Intent(AdministratorMainActivity.this, Ble_ConnectActivity.class));
-                        break;
-                    case R.id.navigation_item_changepassword:
-                        startActivity(new Intent(AdministratorMainActivity.this, ChangePasswordActivity.class));
-                        break;
-                    case R.id.navigation_item_help:
-                        Intent intent1 = new Intent(AdministratorMainActivity.this, HelpActivity.class);
-                        intent1.putExtra("position",0);
-                        startActivity(intent1);
-                        break;
-                    case R.id.navigation_item_faqs:
-                        Intent intent2 = new Intent(AdministratorMainActivity.this, HelpActivity.class);
-                        intent2.putExtra("position",1);
-                        startActivity(intent2);
-                        break;
-                    case R.id.navigation_item_contactus:
-                        Intent intent3 = new Intent(AdministratorMainActivity.this, HelpActivity.class);
-                        intent3.putExtra("position",2);
-                        startActivity(intent3);
-                        break;
-                    case R.id.navigation_item_logout:
-                        PreferenceUtil.getInstance().save("logger", "");
-                        App.user = null;
-                        startActivity(new Intent(AdministratorMainActivity.this, UserSignInActivity.class));
-                        finish();
-                        break;
-                    // 处理更多菜单项的点击事件
-                }
-                drawerLayout.closeDrawer(GravityCompat.START); // 点击菜单项后关闭侧边菜单栏
-                return true;
-            }
-        });
     }
     private void initData() {
-        /*
-        * 侧面菜单栏
-        * */
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
     }
 
     private class MyViewPagerAdapter extends FragmentPagerAdapter {

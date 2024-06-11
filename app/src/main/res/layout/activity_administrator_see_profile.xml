@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/app_background"
-    tools:context=".ui.activity.ProfileActivity">
+    tools:context=".ui.activity.AdministratorSeeProfileActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -72,7 +72,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/phoneTv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:clickable="false"/>
 
     <LinearLayout
         android:id="@+id/loginContent"
@@ -86,15 +87,6 @@
         android:padding="15dp"
         android:background="@drawable/shape_background"
         android:transitionName="loginContent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/Please_tell_more_about_yourself"
-            android:textSize="18sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -116,10 +108,11 @@
             android:paddingRight="10dp"
             android:transitionName="phone">
 
-            <EditText
+            <TextView
                 android:id="@+id/nameEdit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center|left"
                 android:background="#00000000"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -149,10 +142,11 @@
             android:paddingRight="10dp"
             android:transitionName="phone">
 
-            <EditText
+            <TextView
                 android:id="@+id/ageEdit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center|left"
                 android:background="#00000000"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -182,10 +176,11 @@
             android:paddingRight="10dp"
             android:transitionName="phone">
 
-            <EditText
+            <TextView
                 android:id="@+id/emailEdit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center|left"
                 android:background="#00000000"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -215,10 +210,11 @@
             android:paddingRight="10dp"
             android:transitionName="phone">
 
-            <EditText
+            <TextView
                 android:id="@+id/phoneEdit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center|left"
                 android:background="#00000000"
                 android:inputType="phone"
                 android:maxLength="11"
@@ -243,6 +239,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="2dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/shape_edit"
             android:gravity="center"
             android:orientation="horizontal"
@@ -250,10 +247,11 @@
             android:paddingRight="10dp"
             android:transitionName="phone">
 
-            <EditText
+            <TextView
                 android:id="@+id/adressEdit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center|left"
                 android:background="#00000000"
                 android:singleLine="true"
                 android:text=""
@@ -261,18 +259,6 @@
                 android:textSize="14dp" />
 
         </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_update"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/shape_login_btn"
-            android:layout_gravity="center"
-            android:text="@string/UPDATE_PROFILE"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
 
     </LinearLayout>
 

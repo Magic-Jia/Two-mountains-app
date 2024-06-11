@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.twoMountains.R;
 import com.example.twoMountains.bean.UserBean;
 import com.example.twoMountains.db.DBCreator;
+import com.example.twoMountains.ui.activity.AdministratorSeeProfileActivity;
 import com.example.twoMountains.ui.activity.CalendarActivity2;
 import com.example.twoMountains.ui.activity.LineChartActivity;
 
@@ -75,6 +76,14 @@ public class AllUsersAdapter extends RecyclerView.Adapter<AllUsersViewHolder> {
             }
         });
 
+        holder.profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AdministratorSeeProfileActivity.class);
+                intent.putExtra("userId",user.id);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

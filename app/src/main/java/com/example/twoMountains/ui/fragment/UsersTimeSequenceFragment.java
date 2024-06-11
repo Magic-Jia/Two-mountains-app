@@ -58,7 +58,9 @@ public class UsersTimeSequenceFragment extends BaseFragment {
         realData = DBCreator.getUserDao().loadAll();
         // 使用比较器对 realData 列表进行排序
         Collections.sort(realData, new UserBeanComparator());
-        Log.d("allUsers",realData.get(0).account);
+        if(realData.size() > 0){
+            Log.d("allUsers",realData.get(0).account);
+        }
                 /*List<UserBean> userBeans = DBCreator.getUserDao().loadAll();
                 Log.d("TAG", "initData: " + userBeans);
                 for (int i = 0; i < userBeans.size(); i--) {

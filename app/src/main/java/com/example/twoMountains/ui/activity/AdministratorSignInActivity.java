@@ -20,7 +20,6 @@ public class AdministratorSignInActivity extends AppCompatActivity {
 
     private EditText accountEdit;
     private EditText passwordEdit;
-    private Button btn_forgotPassword;
     private Button btn_signIn;
 
     @Override
@@ -38,17 +37,10 @@ public class AdministratorSignInActivity extends AppCompatActivity {
     private void initView() {
         accountEdit = findViewById(R.id.phoneEdit);
         passwordEdit = findViewById(R.id.pwdEdit);
-        btn_forgotPassword = findViewById(R.id.btn_forgotPassword);
         btn_signIn = findViewById(R.id.loginBtn);
     }
 
     private void iniListener() {
-        btn_forgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(AdministratorSignInActivity.this, ChangePasswordActivity.class));
-            }
-        });
         btn_signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

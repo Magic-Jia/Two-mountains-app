@@ -74,10 +74,11 @@
                     android:layout_height="fill_parent"
                     android:layout_weight="1.0"
                     android:gravity="center"
-                    android:text="WEEK"
+                    android:text="@string/WEEK"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textAllCaps="true"/>
 
                 <TextView
                     android:id="@+id/month_text"
@@ -85,10 +86,11 @@
                     android:layout_height="fill_parent"
                     android:layout_weight="1.0"
                     android:gravity="center"
-                    android:text="MONTH"
+                    android:text="@string/MONTH"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textAllCaps="true"/>
 
                 <TextView
                     android:id="@+id/program_text"
@@ -96,10 +98,11 @@
                     android:layout_height="fill_parent"
                     android:layout_weight="1.0"
                     android:gravity="center"
-                    android:text="PRGM"
+                    android:text="@string/PRGM"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:textAllCaps="true"/>
 
             </LinearLayout>
 

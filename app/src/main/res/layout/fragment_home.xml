@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="STOP-SMOKING PROGRAM"
+            android:text="@string/STOP_SMOKING_PROGRAM"
             android:textAppearance="@color/black"
             android:textSize="12sp"
             android:textStyle="bold"/>
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Daily Questions"
+            android:text="@string/Daily_Questions"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="10sp"/>
@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:text="How Movtivated are you to QUIT smoking?(Percentage, such as 80%)"
+            android:text="@string/How_Movtivated_are_you_to_QUIT_smoking"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="10sp"/>
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:text="How many cigarettes did you smoke Yesterday?(Integer, such as 10)"
+            android:text="@string/How_many_cigarettes_did_you_smoke_Yesterday"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="10sp"/>
@@ -106,7 +106,7 @@
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:paddingVertical="-5dp"
-            android:text="SUBMIT"
+            android:text="@string/SUBMIT"
             android:textSize="10sp"
             android:textStyle="bold"/>
 
@@ -156,7 +156,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Started the Program"
+                        android:text="@string/Started_the_Program"
                         android:textAppearance="@color/black"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
@@ -192,7 +192,7 @@
                                 android:textColor="@color/black"
                                 android:background="@android:color/transparent"
                                 android:textAllCaps="false"
-                                android:text="Start Date"/>
+                                android:text="@string/Start_Date"/>
 
                             <TextView
                                 android:id="@+id/tv_StartDate"
@@ -244,7 +244,7 @@
                                 android:textColor="@color/black"
                                 android:background="@android:color/transparent"
                                 android:textAllCaps="false"
-                                android:text="Quit Date"/>
+                                android:text="@string/Quit_Date"/>
 
                             <RelativeLayout
                                 android:layout_width="wrap_content"
@@ -262,7 +262,7 @@
                                     android:background="@android:color/transparent"
                                     android:textAllCaps="false"
                                     android:textSize="9sp"
-                                    android:text="Has to be determined"/>
+                                    android:text="@string/Has_to_be_determined"/>
 
                                 <!--<ImageButton
                                     android:layout_width="9dp"
@@ -294,7 +294,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Smoke-Free Days"
+                        android:text="@string/Smoke_Free_Days"
                         android:textAppearance="@color/black"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
@@ -345,7 +345,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/framelayout"
         android:layout_marginLeft="8dp"
-        android:text="Today's Reading"
+        android:text="@string/Todays_Reading"
         android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="@color/black"

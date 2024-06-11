@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout android:id="@+id/drawer_layout"
+<androidx.appcompat.widget.LinearLayoutCompat android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,11 +21,20 @@
             android:layout_height="@dimen/top_bar_height"
             android:background="?attr/colorPrimary" >
 
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="@dimen/top_bar_height"
+                android:layout_height="@dimen/top_bar_height"
+                android:layout_gravity="left"
+                android:padding="10dp"
+                android:src="@drawable/ic_back"
+                android:clickable="true"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="User Management"
+                android:text="@string/User_Management"
                 android:textSize="20sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>
@@ -99,12 +108,4 @@
 
     </RelativeLayout>
 
-    <!-- 侧边菜单 -->
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigationView"
-        android:layout_width="200dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:menu="@menu/drawer" />
-
-</androidx.drawerlayout.widget.DrawerLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

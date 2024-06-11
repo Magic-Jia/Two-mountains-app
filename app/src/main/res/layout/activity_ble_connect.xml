@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
                 android:layout_gravity="center"
-                android:text="Not Connected"
+                android:text="@string/Not_Connected"
                 android:textAppearance="@color/black"
                 android:textSize="25sp"
                 android:textStyle="bold"/>
@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="25dp"
-                    android:text="Turn On Bluetooth?"
+                    android:text="@string/Turn_On_Bluetooth"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
 
@@ -98,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:text="To Connect to and Setup your X-pedition1"
+                    android:text="@string/To_Connect_to_and_Setup_your_Xpedition1"
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
 
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="2dp"
-                    android:text="Bluetooth needs to be on."
+                    android:text="@string/Bluetooth_needs_to_be_on."
                     android:textColor="@color/black"
                     android:textStyle="bold"/>
 
@@ -127,7 +127,7 @@
                         android:background="@android:color/transparent"
                         android:textColor="@color/deep_blue"
                         android:textStyle="bold"
-                        android:text="Cancel"
+                        android:text="@string/Cancel"
                         android:textSize="10dp"
                         android:textAllCaps="false"/>
 
@@ -147,7 +147,7 @@
                         android:background="@drawable/shape_button1"
                         android:textColor="@color/white"
                         android:textStyle="bold"
-                        android:text="Turn on"
+                        android:text="@string/Turn_on"
                         android:textSize="10dp"
                         android:textAllCaps="false"/>
 
@@ -161,7 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:minHeight="0dp"
-                android:text="Connect Your X-pedition1"
+                android:text="@string/Connect_Your_Xpedition1"
                 android:textSize="12sp"
                 android:textColor="@color/deep_blue"
                 android:textStyle="bold"
@@ -172,7 +172,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Tap your X-pedition 1 when it appears in the list"
+                android:text="@string/Tap_your_Xpedition1_when_it_appears_in_the_list"
                 android:textStyle="bold"/>
 
             <!--<androidx.appcompat.widget.LinearLayoutCompat

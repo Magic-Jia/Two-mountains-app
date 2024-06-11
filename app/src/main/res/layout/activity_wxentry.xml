@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.WXEntryActivity">
+    tools:context=".wxapi.WXEntryActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="微信登录"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

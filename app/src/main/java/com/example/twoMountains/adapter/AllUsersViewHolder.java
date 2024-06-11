@@ -18,6 +18,7 @@ public class AllUsersViewHolder extends RecyclerView.ViewHolder {
     public TextView smokeFreeDays;
     public Button graph;
     public Button calender;
+    public Button profile;
 
     public AllUsersViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -28,5 +29,6 @@ public class AllUsersViewHolder extends RecyclerView.ViewHolder {
         smokeFreeDays = itemView.findViewById(R.id.tv_smokeFreeDays2);
         graph = itemView.findViewById(R.id.btn_graph);
         calender = itemView.findViewById(R.id.btn_calender);
+        profile = itemView.findViewById(R.id.btn_profile);
     }
 }

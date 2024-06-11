@@ -128,7 +128,7 @@ public class SignUpActivity extends AppCompatActivity {
     private void sendWechatAuthRequest() {
         final SendAuth.Req req = new SendAuth.Req();
         req.scope = "snsapi_userinfo";
-        req.state = "wechat_sdk_demo_test";
+        req.state = "wechat_sdk_demo";
         App.wxApi.sendReq(req);
     }
 

@@ -8,10 +8,38 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.twoMountains.R;
+import com.example.twoMountains.adapter.CommonAdapter;
+import com.example.twoMountains.adapter.ViewHolder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TermsOfServiceActivity extends AppCompatActivity {
+
+    private class TermsOfService {
+        public TermsOfService(String title, String content) {
+            this.title = title;
+            this.content = content;
+        }
+
+        public String title;
+        public String content;
+    }
+
+
+    private RecyclerView recycler;
+    private List<TermsOfService> termsOfServices = new ArrayList<>();
+    private CommonAdapter<TermsOfService> adapter = new CommonAdapter<TermsOfService>(R.layout.item_terms_of_service, termsOfServices) {
+        @Override
+        public void bind(ViewHolder holder, TermsOfService termsOfService, int position) {
+            holder.setText(R.id.txt_title, termsOfService.title);
+            holder.setText(R.id.txt_content, termsOfService.content);
+        }
+    };
 
     private Button btn_cancel;
     private Button btn_agree;
@@ -28,6 +56,8 @@ public class TermsOfServiceActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        recycler = findViewById(R.id.recycler);
+        recycler.setLayoutManager(new LinearLayoutManager(this));
         btn_cancel=findViewById(R.id.btn_cancel);
         btn_agree=findViewById(R.id.btn_agree);
     }
@@ -63,5 +93,14 @@ public class TermsOfServiceActivity extends AppCompatActivity {
     }
 
     private void initData() {
+        termsOfServices.add(new TermsOfService(getResources().getString(R.string.Terms), getResources().getString(R.string.Terms_Content)));
+        termsOfServices.add(new TermsOfService(getResources().getString(R.string.UseLicense), getResources().getString(R.string.UseLicense_Content)));
+        termsOfServices.add(new TermsOfService(getResources().getString(R.string.Disclaimer), getResources().getString(R.string.Disclaimer_Content)));
+        termsOfServices.add(new TermsOfService(getResources().getString(R.string.Limitations), getResources().getString(R.string.Limitations_Content)));
+        termsOfServices.add(new TermsOfService(getResources().getString(R.string.Accuracyofmaterials), getResources().getString(R.string.Accuracyofmaterials_Content)));
+        termsOfServices.add(new TermsOfService(getResources().getString(R.string.Links), getResources().getString(R.string.Links_Content)));
+        termsOfServices.add(new TermsOfService(getResources().getString(R.string.Modifications), getResources().getString(R.string.Modifications_Content)));
+        termsOfServices.add(new TermsOfService(getResources().getString(R.string.GoverningLaw), getResources().getString(R.string.GoverningLaw_Content)));
+        recycler.setAdapter(adapter);
     }
 }

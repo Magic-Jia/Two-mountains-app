@@ -1,11 +1,15 @@
 package com.example.twoMountains.ui.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -32,6 +36,7 @@ public class FMActivity extends BaseActivity {
     private RecyclerView fmRecycler;
 
     private TextView uploadTv;
+    private static final int REQUEST_STORAGE_PERMISSION = 100;
 
     private CommonAdapter<FMMenuItem> menuItemCommonAdapter = new CommonAdapter<FMMenuItem>(R.layout.item_fm_menu, items) {
         @Override
@@ -81,11 +86,21 @@ public class FMActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        //请求存储权限
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                    REQUEST_STORAGE_PERMISSION);
+        } else {
+            // 已授权，执行文件读取操作
+        }
+
         EventBus.getDefault().register(this);
-        items.add(new FMMenuItem("Emotion", R.drawable.ic_qxgl));
-        items.add(new FMMenuItem("Music", R.drawable.ic_rjgt));
-        items.add(new FMMenuItem("Science", R.drawable.ic_jz));
-        items.add(new FMMenuItem("Others", R.drawable.ic_kp));
+        items.add(new FMMenuItem(getResources().getString(R.string.Emotion), R.drawable.ic_qxgl));
+        items.add(new FMMenuItem(getResources().getString(R.string.Music), R.drawable.ic_rjgt));
+        items.add(new FMMenuItem(getResources().getString(R.string.Science), R.drawable.ic_jz));
+        items.add(new FMMenuItem(getResources().getString(R.string.Others), R.drawable.ic_kp));
         menuRecycler.setAdapter(menuItemCommonAdapter);
         List<FMBean> fmBeans = DBCreator.getFMDao().queryAll();
         fmData.addAll(fmBeans);

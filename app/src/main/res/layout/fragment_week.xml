@@ -24,7 +24,7 @@
         android:layout_alignTop="@id/linechart1"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
-        android:text="Motivation"
+        android:text="@string/Motivation"
         android:textSize="10sp"
         android:textColor="@color/black"/>
 
@@ -32,7 +32,7 @@
         android:id="@+id/xAxisTitle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="date"
+        android:text="@string/date"
         android:layout_alignBottom="@id/linechart1"
         android:layout_alignRight="@id/linechart1"
         android:layout_marginBottom="5dp"
@@ -55,7 +55,7 @@
         android:layout_alignTop="@id/linechart2"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
-        android:text="Amount"
+        android:text="@string/Amount"
         android:textSize="10sp"
         android:textColor="@color/black"/>
 
@@ -63,7 +63,7 @@
         android:id="@+id/xAxisTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="date"
+        android:text="@string/date"
         android:layout_alignBottom="@id/linechart2"
         android:layout_alignRight="@id/linechart2"
         android:layout_marginBottom="10dp"

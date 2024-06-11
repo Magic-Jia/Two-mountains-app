@@ -80,7 +80,7 @@
                         android:minHeight="0dp"
                         android:paddingVertical="-5dp"
                         android:paddingHorizontal="-5dp"
-                        android:text="Search"
+                        android:text="@string/Search"
                         android:textColor="#FFFFFF"
                         android:textSize="10sp"
                         android:background="@drawable/bt_bg"/>
@@ -108,7 +108,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:hint="Device"
+                        android:hint="@string/Device"
                         android:textColor="@color/colorPrimary"
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
@@ -121,7 +121,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="14sp"
-                        android:hint="Adress"
+                        android:hint="@string/Adress"
                         android:textColor="@color/colorPrimary"
                         android:paddingTop="5dp"
                         android:paddingBottom="5dp"
@@ -141,7 +141,7 @@
                             android:minHeight="0dp"
                             android:paddingVertical="-5dp"
                             android:paddingHorizontal="-5dp"
-                            android:text="Connect"
+                            android:text="@string/Connect"
                             android:textColor="#FFFFFF"
                             android:textSize="10sp"
                             android:background="@drawable/bt_bg"/>
@@ -154,7 +154,7 @@
                             android:minHeight="0dp"
                             android:paddingVertical="-5dp"
                             android:paddingHorizontal="-5dp"
-                            android:text="Disconnect"
+                            android:text="@string/Disconnect"
                             android:textColor="#FFFFFF"
                             android:textSize="10sp"
                             android:background="@drawable/bt_bg"/>
@@ -196,7 +196,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
-                    android:text="Set the data to be sent (in hexadecimal string format)"
+                    android:text="@string/Set_the_data_to_be_sent"
                     android:textColor="@color/colorPrimary"/>
 
                 <EditText
@@ -207,7 +207,7 @@
                     android:textSize="14sp"
                     android:textColor="#333333"
                     android:padding="10dp"
-                    android:hint="Enter the data to be sent hereEnter the data to be sent here"
+                    android:hint="@string/Enter_the_data"
                     android:background="@drawable/tv_bg"/>
 
                 <Button
@@ -219,7 +219,7 @@
                     android:minHeight="0dp"
                     android:paddingVertical="-5dp"
                     android:paddingHorizontal="-5dp"
-                    android:text="Send"
+                    android:text="@string/Send"
                     android:textColor="#FFFFFF"
                     android:textSize="10sp"
                     android:background="@drawable/bt_bg"/>
@@ -229,7 +229,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
-                    android:text="The result of sending data operation is displayed here"
+                    android:text="@string/The_result_of_sending_data_operation_is_displayed_here"
                     android:textColor="@color/colorPrimary"/>
 
                 <ScrollView
@@ -244,7 +244,7 @@
                         android:layout_height="match_parent"
                         android:padding="10dp"
                         android:textSize="14sp"
-                        android:hint="The result of sending data operation is displayed here"
+                        android:hint="@string/The_result_of_sending_data_operation_is_displayed_here"
                         android:textColor="@color/colorPrimary"/>
                 </ScrollView>
 
@@ -253,7 +253,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
-                    android:text="Display the received data operation results (successful/failed sending)"
+                    android:text="@string/Display_the_received_data_operation_results"
                     android:textColor="@color/colorPrimary"/>
 
                 <ScrollView
@@ -268,7 +268,7 @@
                         android:layout_height="match_parent"
                         android:padding="10dp"
                         android:textSize="14sp"
-                        android:hint="The result of receiving data operation is displayed here"
+                        android:hint="@string/The_result_of_receiving_data_operation_is_displayed_here"
                         android:textColor="@color/colorPrimary"/>
                 </ScrollView>
 

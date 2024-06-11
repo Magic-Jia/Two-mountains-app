@@ -27,23 +27,30 @@
         android:theme="@style/Theme.BLE"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".ui.activity.ForgetPasswordActivity"
+            android:name=".ui.activity.AdministratorSeeProfileActivity"
             android:exported="true" />
-        <!-- 微信登录Activity -->
+        <activity
+            android:name=".ui.activity.ForgetPasswordActivity"
+            android:exported="true" /> <!-- 微信登录Activity -->
         <activity
             android:name=".wxapi.WXEntryActivity"
             android:exported="true"
-            android:launchMode="singleTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            android:launchMode="singleTop"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="wxb4ba3c02aa476ea1" />
+                <data android:scheme="wx68c3d9bac60154ed" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.tencent.mm.plugin.openapi.wxapi.WXEntryActivity"
+            android:value="${applicationId}.wxapi.WXEntryActivity" />
+
         <activity
             android:name=".ui.activity.ProfileActivity"
             android:exported="true" />
@@ -110,9 +117,6 @@
             android:exported="true" />
         <activity
             android:name=".ui.activity.LineChartActivity"
-            android:exported="true" />
-        <activity
-            android:name=".ui.activity.ShareActivity"
             android:exported="true" />
         <activity
             android:name=".ui.activity.Ble_ConnectActivity"

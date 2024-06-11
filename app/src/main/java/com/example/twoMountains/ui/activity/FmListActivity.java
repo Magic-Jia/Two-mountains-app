@@ -28,7 +28,7 @@ public class FmListActivity extends BaseActivity {
             holder.setText(R.id.titleTv, fmBean.fmTitle);
             holder.setText(R.id.secTitleTv, fmBean.fmSecTitle);
             holder.setText(R.id.fmAnchorTv, fmBean.fmAuthor);
-            holder.setText(R.id.uperTv, "Uploader：" + fmBean.up);
+            holder.setText(R.id.uperTv, getResources().getString(R.string.Uploader) + fmBean.up);
             ImageView faceView = holder.getView(R.id.faceIv);
             Glide.with(faceView).load(fmBean.faceFilePath).into(faceView);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -57,13 +57,17 @@ public class FmListActivity extends BaseActivity {
         }
         switch (type){
             case 1:
-                txt_title.setText("Emotion");
+                txt_title.setText(getResources().getString(R.string.Emotion));
+                break;
             case 2:
-                txt_title.setText("Music");
+                txt_title.setText(getResources().getString(R.string.Music));
+                break;
             case 3:
-                txt_title.setText("Science");
+                txt_title.setText(getResources().getString(R.string.Science));
+                break;
             case 4:
-                txt_title.setText("Others");
+                txt_title.setText(getResources().getString(R.string.Others));
+                break;
         }
         List<FMBean> fmQueryData = DBCreator.getFMDao().queryByType(type);
         if (fmQueryData != null && !fmQueryData.isEmpty()) {

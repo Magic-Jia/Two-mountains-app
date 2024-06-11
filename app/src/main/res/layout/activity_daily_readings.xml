@@ -30,7 +30,7 @@
             android:layout_marginRight="8dp"
             android:layout_toRightOf="@id/backBtn"
             android:gravity="center"
-            android:text="Daily Readings"
+            android:text="@string/Daily_Readings"
             android:textColor="#fff"
             android:textSize="15sp" />
 
@@ -47,7 +47,7 @@
             android:src="@drawable/two_mountains2"
             android:background="@drawable/shape_icbackground"/>-->
 
-        <ImageView
+        <!--<ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_toLeftOf="@+id/user_name"
@@ -68,7 +68,7 @@
             android:gravity="center"
             android:text="Emma Smaith"
             android:textColor="#fff"
-            android:textSize="10sp" />
+            android:textSize="10sp" />-->
 
     </RelativeLayout>
 

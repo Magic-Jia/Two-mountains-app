@@ -2,7 +2,7 @@
 <EditText xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:hint="Enter nickname"
+    android:hint="@string/Enter_your_name"
     android:textSize="14dp">
 
 </EditText>

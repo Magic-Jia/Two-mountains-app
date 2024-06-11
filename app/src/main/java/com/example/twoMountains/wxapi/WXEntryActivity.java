@@ -18,7 +18,9 @@ import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,17 +36,20 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
-    private static final String WECHAT_APP_ID = "wx68c3d9bac60154ed";
-    private static final String WECHAT_APP_SECRET = "68d0adb0a20a80be1ca8e1058af53429";
+
+    private IWXAPI wxApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        App.wxApi.handleIntent(getIntent(), this);
+
+        wxApi = WXAPIFactory.createWXAPI(this, "wx68c3d9bac60154ed", false);
+        wxApi.handleIntent(getIntent(), this);
     }
 
     @Override
     public void onReq(BaseReq req) {
+        // Handle WeChat requests here
     }
 
     @Override
@@ -53,18 +58,19 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
             SendAuth.Resp authResp = (SendAuth.Resp) resp;
             if (authResp.errCode == BaseResp.ErrCode.ERR_OK) {
                 String code = authResp.code;
-                // 利用code向微信后台请求access_token，以获取用户信息
+                // Get access token here
                 getAccessToken(code);
             } else {
-                // 处理登录失败
-                Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show();
+                // Handle failure
+                runOnUiThread(() -> Toast.makeText(WXEntryActivity.this, "Login Failed", Toast.LENGTH_SHORT).show());
+                finish();
             }
         }
     }
 
     private void getAccessToken(String code) {
-        String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + WECHAT_APP_ID +
-                "&secret=" + WECHAT_APP_SECRET +
+        String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + "wx68c3d9bac60154ed" +
+                "&secret=" + "68d0adb0a20a80be1ca8e1058af53429" +
                 "&code=" + code +
                 "&grant_type=authorization_code";
 
@@ -114,22 +120,20 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                         String nickname = jsonObject.getString("nickname");
                         String headimgurl = jsonObject.getString("headimgurl");
                         //查询用户是否已经注册
-                        UserBean registeredUser = DBCreator.getUserDao().queryUserByAccount(openId);
-                        if (registeredUser == null) {//未注册
+                        if (DBCreator.getUserDao().queryUserByAccount(openId) == null) {//未注册
                             // 保存用户信息到数据库
-                            registeredUser = new UserBean();
+                            UserBean registeredUser = new UserBean();
                             registeredUser.account = openId;
                             registeredUser.name = nickname;
                             registeredUser.iconPath = headimgurl;
                             DBCreator.getUserDao().registerUser(registeredUser);
                         }
                         runOnUiThread(() -> Toast.makeText(WXEntryActivity.this, "Login successful" + nickname, Toast.LENGTH_SHORT).show());
-                        App.user = registeredUser;
+                        App.user = DBCreator.getUserDao().queryUserByAccount(openId);
+                        Log.d("name",App.user.name);
                         PreferenceUtil.getInstance().save("logger", App.user.account);
                         PreferenceUtil.getInstance().save("state",1);
-                        /*
-                        查询是否已有戒烟计划
-                        */
+                        //查询是否已有戒烟计划
                         if(DBCreator.getQuitPlanDao().queryQuitPlanByUser(App.user.id) == null){//还没有戒烟计划
                             QuitPlanBean quitPlanBean = new QuitPlanBean();
                             quitPlanBean.userId = App.user.id;

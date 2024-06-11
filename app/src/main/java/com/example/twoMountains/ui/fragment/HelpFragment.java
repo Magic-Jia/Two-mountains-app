@@ -152,7 +152,5 @@ public class HelpFragment extends BaseFragment {
 
     public void onResume() {
         super.onResume();
-        initListener();
-        // 更新数据和视图
     }
 }

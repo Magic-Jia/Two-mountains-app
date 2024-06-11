@@ -70,7 +70,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                     Toast.makeText(ForgetPasswordActivity.this, "Account or email error", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (userBean.email.equals(email)) {
+                if (userBean.email != null && userBean.email.equals(email)) {
                     if (newPassword.isEmpty()) {
                         newPasswordEdit.setError("Please enter the password");
                         return;

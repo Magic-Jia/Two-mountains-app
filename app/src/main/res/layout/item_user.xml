@@ -61,7 +61,7 @@
             android:paddingLeft="10dp"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
-            android:text="Start Date:"
+            android:text="@string/Start_Date2"
             android:textColor="@color/black"
             app:layout_constraintRight_toLeftOf="@id/tv_startDate2"
             app:layout_constraintTop_toTopOf="parent" />
@@ -86,7 +86,7 @@
             android:paddingLeft="10dp"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
-            android:text="Quit Date:"
+            android:text="@string/Quit_Date2"
             android:textColor="@color/black"
             app:layout_constraintRight_toLeftOf="@id/tv_quitDate2"
             app:layout_constraintTop_toBottomOf="@id/tv_startDate2" />
@@ -110,7 +110,7 @@
             android:paddingLeft="10dp"
             android:paddingTop="2dp"
             android:paddingBottom="2dp"
-            android:text="Smoke-Free Days:"
+            android:text="@string/Smoke_Free_Days3"
             android:textColor="@color/black"
             app:layout_constraintRight_toLeftOf="@id/tv_smokeFreeDays2"
             app:layout_constraintTop_toBottomOf="@id/tv_quitDate2" />
@@ -146,9 +146,10 @@
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:paddingVertical="-5dp"
-            android:text="GRAPH"
+            android:text="@string/Graph"
             android:textSize="10sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
 
         <Button
             android:id="@+id/btn_calender"
@@ -159,9 +160,24 @@
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:paddingVertical="-5dp"
-            android:text="CALENDER"
+            android:text="@string/CALENDAR"
             android:textSize="10sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
+
+        <Button
+            android:id="@+id/btn_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingVertical="-5dp"
+            android:text="@string/Profile"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
 
     </LinearLayout>
 </LinearLayout>

@@ -15,7 +15,7 @@ import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import java.io.ByteArrayOutputStream;
 
 public class WeChatShare {
-    private static final String APP_ID = "wx68c3d9bac60154ed";  // 替换为你的微信应用ID
+    private static final String APP_ID = "wx68c3d9bac60154ed";
     private IWXAPI api;
 
     public WeChatShare(Context context) {

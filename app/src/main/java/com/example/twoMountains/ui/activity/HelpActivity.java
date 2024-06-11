@@ -2,6 +2,7 @@ package com.example.twoMountains.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -55,23 +56,21 @@ public class HelpActivity extends AppCompatActivity {
         tabEntities.add(new MyEntry("HELP TOPICS"));
         tabEntities.add(new MyEntry("FAQ'S"));
         tabEntities.add(new MyEntry("CONTACT US"));
+        fragments.clear();
         fragments.add(HelpTopicsFragment.newInstance());
         fragments.add(FAQFragment.newInstance());
         fragments.add(ContactUsFragment.newInstance());
         viewPager.setOffscreenPageLimit(3);
-        viewPager.setAdapter(new MyViewPagerAdapter(tabLayout,fragments, getSupportFragmentManager()));
+        viewPager.setAdapter(new MyViewPagerAdapter(fragments, getSupportFragmentManager()));
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
             }
 
             @Override
             public void onPageSelected(int position) {
+                Log.d("position",String.valueOf(position));
                 tabLayout.setCurrentTab(position);
-                if(position == 0){
-                    fragments.get(0).onResume();
-                }
             }
 
             @Override
@@ -86,9 +85,6 @@ public class HelpActivity extends AppCompatActivity {
             @Override
             public void onTabSelect(int position) {
                 viewPager.setCurrentItem(position);
-                if(position == 0){
-                    fragments.get(0).onResume();
-                }
             }
 
             @Override
@@ -111,11 +107,8 @@ public class HelpActivity extends AppCompatActivity {
     private class MyViewPagerAdapter extends FragmentPagerAdapter {
         private List<Fragment> fragments;
 
-        private CommonTabLayout tabLayout;
-
-        public MyViewPagerAdapter(CommonTabLayout tabLayout,List<Fragment> fragments, @NonNull FragmentManager fm) {
-            super(fm);
-            this.tabLayout = tabLayout;
+        public MyViewPagerAdapter(List<Fragment> fragments, @NonNull FragmentManager fm) {
+            super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
             this.fragments = fragments;
         }
 
@@ -127,7 +120,8 @@ public class HelpActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return fragments.size();
+
+            return Math.min(fragments.size(), 3);
         }
     }
 

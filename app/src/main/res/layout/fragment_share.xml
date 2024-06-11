@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:text="STOP-SMOKING PROGRAM"
+            android:text="@string/STOP_SMOKING_PROGRAM"
             android:textAppearance="@color/black"
             android:textSize="15sp"
             android:textStyle="bold"/>
@@ -82,7 +82,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Started the Program"
+                        android:text="@string/Started_the_Program"
                         android:textAppearance="@color/black"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
@@ -119,7 +119,7 @@
                                 android:textColor="@color/black"
                                 android:background="@android:color/transparent"
                                 android:textAllCaps="false"
-                                android:text="Start Date"/>
+                                android:text="@string/Start_Date"/>
 
                             <TextView
                                 android:id="@+id/tv_StartDate"
@@ -171,7 +171,7 @@
                                 android:textColor="@color/black"
                                 android:background="@android:color/transparent"
                                 android:textAllCaps="false"
-                                android:text="Quit Date"/>
+                                android:text="@string/Quit_Date"/>
 
                             <RelativeLayout
                                 android:layout_width="wrap_content"
@@ -189,7 +189,7 @@
                                     android:background="@android:color/transparent"
                                     android:textAllCaps="false"
                                     android:textSize="9sp"
-                                    android:text="Has to be determined"/>
+                                    android:text="@string/Has_to_be_determined"/>
 
                                 <!--<ImageButton
                                     android:layout_width="9dp"
@@ -221,7 +221,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Smoke-Free Days"
+                        android:text="@string/Smoke_Free_Days"
                         android:textAppearance="@color/black"
                         android:textSize="15sp"
                         android:textStyle="bold"/>
@@ -266,7 +266,7 @@
                 android:paddingVertical="8dp"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/shape_button2"
-                android:text="Share your Results"
+                android:text="@string/Share_your_Results"
                 android:textSize="11sp"
                 android:textAllCaps="false"/>
 
@@ -326,7 +326,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="8dp"
         android:layout_marginBottom="10dp"
-        android:text="Daily Readings"
+        android:text="@string/Daily_Readings"
         android:textSize="15sp"
         android:textStyle="bold"
         android:textColor="@color/black"

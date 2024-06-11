@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Administrator"
+        android:text="@string/Administrator"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:textStyle="bold"/>
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Login to your account"
+        android:text="@string/Login_to_your_account"
         android:textSize="10sp"
         android:textColor="@color/black"
         android:textStyle="bold"/>
@@ -89,7 +89,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="account："
+                android:text="@string/account"
                 android:textSize="14sp" />
 
             <EditText
@@ -97,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#00000000"
-                android:hint="phone number/email"
+                android:hint="@string/phone_number"
                 android:inputType="phone"
                 android:maxLength="11"
                 android:maxLines="1"
@@ -130,7 +130,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="password："
+                android:text="@string/password"
                 android:textSize="14dp" />
 
             <EditText
@@ -139,9 +139,8 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="#00000000"
-                android:hint="******"
+                android:hint="********"
                 android:inputType="textPassword"
-                android:maxLength="6"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text=""
@@ -151,30 +150,32 @@
 
     </LinearLayout>
 
-    <Button
+    <!--<Button
         android:id="@+id/btn_forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:minHeight="0dp"
         android:background="@android:color/transparent"
-        android:text="Forgot Password?"
+        android:text="@string/Forgot_Password"
         android:textColor="@android:color/darker_gray"
         android:textAllCaps="false"
-        android:textSize="10sp"/>
+        android:textSize="10sp"/>-->
 
     <Button
         android:id="@+id/loginBtn"
         android:layout_width="170dp"
         android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/shape_login_btn"
         android:layout_gravity="center"
-        android:text="SIGN IN"
+        android:text="@string/Sign_In"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        android:textAllCaps="true"/>
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -192,7 +193,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
             android:layout_gravity="center"
-            android:text="OR"
+            android:text="@string/or"
             android:textSize="10sp"
             android:textColor="@color/black"/>
 
@@ -209,7 +210,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:text="Use Social Media"
+        android:text="@string/Use_Social_Media"
         android:textSize="12sp"
         android:textColor="@color/black"
         android:textStyle="bold"/>
@@ -221,6 +222,6 @@
         android:layout_gravity="center"
         android:src="@drawable/ic_wechat"
         android:scaleType="centerInside"
-        android:background="@android:color/transparent"/>
+        android:background="@android:color/transparent"/>-->
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -38,8 +38,8 @@ public class ReadingsFragment extends BaseFragment {
     protected void initData() {
         // 创建一个 FragmentPagerAdapter 实例
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new FavoriteReadingsFragment(), "Favorite Readings");
-        adapter.addFragment(new AllReadingsFragment(), "All Readings");
+        adapter.addFragment(new FavoriteReadingsFragment(), getResources().getString(R.string.Favorite_Readings));
+        adapter.addFragment(new AllReadingsFragment(), getResources().getString(R.string.All_Readings));
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

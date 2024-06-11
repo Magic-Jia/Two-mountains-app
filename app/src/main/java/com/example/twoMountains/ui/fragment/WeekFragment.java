@@ -14,6 +14,7 @@ import com.example.twoMountains.R;
 import com.example.twoMountains.bean.UserBean;
 import com.example.twoMountains.db.DBCreator;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.LimitLine;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -139,6 +140,16 @@ public class WeekFragment extends Fragment {
         lineChart1.getAxisRight().setEnabled(false);
         lineChart1.getDescription().setEnabled(false);
         lineChart1.setScaleEnabled(true);
+
+        // 添加黄线
+        LimitLine limitLine1 = new LimitLine(70f, "70%");
+        limitLine1.setLineWidth(2f);
+        limitLine1.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
+        limitLine1.setTextSize(10f);
+        limitLine1.setLineColor(Color.YELLOW);
+
+        // 获取 Y 轴，添加限制线
+        leftAxis.addLimitLine(limitLine1);
 
         lineChart1.invalidate();
 

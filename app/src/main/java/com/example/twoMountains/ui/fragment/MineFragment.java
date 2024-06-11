@@ -18,8 +18,8 @@ import com.example.twoMountains.R;
 import com.example.twoMountains.base.BaseFragment;
 import com.example.twoMountains.db.DBCreator;
 import com.example.twoMountains.ui.activity.Ble_ConnectActivity;
+import com.example.twoMountains.ui.activity.CalendarActivity2;
 import com.example.twoMountains.ui.activity.DeviceSettingsActivity;
-import com.example.twoMountains.ui.activity.FMActivity;
 import com.example.twoMountains.ui.activity.LineChartActivity;
 import com.example.twoMountains.ui.activity.ProfileActivity;
 import com.example.twoMountains.ui.activity.UserSignInActivity;
@@ -41,7 +41,7 @@ public class MineFragment extends BaseFragment {
     private LinearLayout deviceSetting;
     private LinearLayout bluetooth;
 
-    private LinearLayout listen;
+    private LinearLayout calendar;
 
 
     public static MineFragment newInstance() {
@@ -127,10 +127,10 @@ public class MineFragment extends BaseFragment {
                 startActivity(new Intent(requireActivity(), Ble_ConnectActivity.class));
             }
         });
-        listen.setOnClickListener(new View.OnClickListener() {
+        calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(requireActivity(), FMActivity.class));
+                startActivity(new Intent(requireActivity(), CalendarActivity2.class));
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {
@@ -176,7 +176,7 @@ public class MineFragment extends BaseFragment {
         deviceSetting = view.findViewById(R.id.deviceSetting);
         headView = view.findViewById(R.id.headView);
         bluetooth = view.findViewById(R.id.bluetooth);
-        listen = view.findViewById(R.id.layout_listen);
+        calendar = view.findViewById(R.id.calendar);
 
         logout = view.findViewById(R.id.logout);
     }

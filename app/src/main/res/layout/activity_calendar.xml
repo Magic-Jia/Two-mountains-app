@@ -78,7 +78,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Sun"
+                        android:text="@string/Sun"
                         android:textColor="@color/black"
                         android:gravity="center"/>
 
@@ -86,7 +86,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Mon"
+                        android:text="@string/Mon"
                         android:textColor="@color/black"
                         android:gravity="center"/>
 
@@ -94,7 +94,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Tue"
+                        android:text="@string/Tue"
                         android:textColor="@color/black"
                         android:gravity="center"/>
 
@@ -102,7 +102,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Wed"
+                        android:text="@string/Wed"
                         android:textColor="@color/black"
                         android:gravity="center"/>
 
@@ -110,7 +110,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Thu"
+                        android:text="@string/Thu"
                         android:textColor="@color/black"
                         android:gravity="center"/>
 
@@ -118,7 +118,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Fri"
+                        android:text="@string/Fri"
                         android:textColor="@color/black"
                         android:gravity="center"/>
 
@@ -126,7 +126,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Sat"
+                        android:text="@string/Sat"
                         android:textColor="@color/black"
                         android:gravity="center"/>
 

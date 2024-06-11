@@ -1,6 +1,8 @@
 package com.example.twoMountains.ui.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -56,6 +58,11 @@ public class HomeFragment extends BaseFragment {
     private ImageButton imbtn_star;
 
     private ArticleBean articleBean = new ArticleBean();
+
+    private static final String PREFS_NAME = "ArticlePrefs";
+    private static final String KEY_LAST_ARTICLE_ID = "lastArticleId";
+    private static final String KEY_LAST_PUSH_DATE = "lastPushDate";
+    private int currentArticleId = 1;
 
     public static HomeFragment newInstance() {
         Bundle args = new Bundle();
@@ -168,15 +175,49 @@ public class HomeFragment extends BaseFragment {
         calculateQuitDateAndSmokeFreeDays();
 
         /*
-         * 显示推送文章
+         * 检查是否需要推送新文章
          * */
-        articleBean = DBCreator.getArticleDao().queryArticleById(1);
-        tv_articleTitle.setText(articleBean.title);
-        tv_articleContent.setText(articleBean.content);
-        if(DBCreator.getArticleStarDao().queryArticleStarByUserAndArticle(App.user.id,articleBean.id) != null){//该文章被用户收藏
-            imbtn_star.setImageResource(R.drawable.star_yellow);
-        }else{
-            imbtn_star.setImageResource(R.drawable.star_grey);
+        SharedPreferences prefs = getActivity().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        String lastPushDate = prefs.getString(KEY_LAST_PUSH_DATE, "");
+        String todayDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+
+        if (!todayDate.equals(lastPushDate)) {
+            // 获取新的文章编号
+            currentArticleId = prefs.getInt(KEY_LAST_ARTICLE_ID, 0) + 1;
+            // 尝试加载文章，如果没有文章则重置为第一篇
+            articleBean = DBCreator.getArticleDao().queryArticleById(currentArticleId);
+            if (articleBean == null) {
+                currentArticleId = 1;
+                articleBean = DBCreator.getArticleDao().queryArticleById(currentArticleId);
+            }
+
+            // 更新文章内容
+            tv_articleTitle.setText(articleBean.title);
+            tv_articleContent.setText(articleBean.content);
+
+            if (DBCreator.getArticleStarDao().queryArticleStarByUserAndArticle(App.user.id, articleBean.id) != null) {
+                imbtn_star.setImageResource(R.drawable.star_yellow);
+            } else {
+                imbtn_star.setImageResource(R.drawable.star_grey);
+            }
+
+            // 更新SharedPreferences
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt(KEY_LAST_ARTICLE_ID, currentArticleId);
+            editor.putString(KEY_LAST_PUSH_DATE, todayDate);
+            editor.apply();
+        } else {
+            // 日期没有改变，加载最后推送的文章
+            currentArticleId = prefs.getInt(KEY_LAST_ARTICLE_ID, 1);
+            articleBean = DBCreator.getArticleDao().queryArticleById(currentArticleId);
+            tv_articleTitle.setText(articleBean.title);
+            tv_articleContent.setText(articleBean.content);
+
+            if (DBCreator.getArticleStarDao().queryArticleStarByUserAndArticle(App.user.id, articleBean.id) != null) {
+                imbtn_star.setImageResource(R.drawable.star_yellow);
+            } else {
+                imbtn_star.setImageResource(R.drawable.star_grey);
+            }
         }
     }
 
@@ -248,7 +289,7 @@ public class HomeFragment extends BaseFragment {
                 System.err.println("Error parsing date: " + e.getMessage());
             }
         }else{
-            tv_quitDate.setText("Has to be determined");
+            tv_quitDate.setText(getResources().getString(R.string.Has_to_be_determined));
             tv_smokeFreeDays.setText("0");
         }
     }

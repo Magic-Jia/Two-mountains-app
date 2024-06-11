@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:layout_gravity="center"
-        android:text="Any Question? Please Write Us"
+        android:text="@string/Any_Question_Please_Write_Us"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="15sp"/>
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:text="You can send an email to 1825231679@qq.com"
+        android:text="@string/You_can_send_an_email_to"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="15sp"/>
